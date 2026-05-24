@@ -1,0 +1,47 @@
+chartConfig:
+  config:
+    groupColorOverrides: {}
+    groupFieldIds:
+      - customers_created_month
+    groupLabelOverrides: {}
+    groupSortOverrides: []
+    groupValueOptionOverrides: {}
+    isDonut: true
+    legendPosition: horizontal
+    metricId: customers_unique_customer_count
+    showLegend: true
+    showPercentage: true
+    showValue: false
+    valueLabel: inside
+  type: pie
+contentType: chart
+description: A pivot table sample
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - customers_created_month
+  exploreName: customers
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - customers_unique_customer_count
+  sorts:
+    - descending: false
+      fieldId: customers_created_month
+  tableCalculations: []
+name: How many users were created each month ?
+pivotConfig:
+  columns:
+    - payments_payment_method
+slug: how-many-users-were-created-each-month
+spaceSlug: jaffle-shop
+tableConfig:
+  columnOrder:
+    - customers_created_month
+    - customers_unique_customer_count
+tableName: customers
+verification: null
+version: 1

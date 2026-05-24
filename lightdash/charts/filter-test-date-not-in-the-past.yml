@@ -1,0 +1,70 @@
+chartConfig:
+  config: null
+  type: table
+contentType: chart
+description: Tests NOT_IN_THE_PAST with all UnitOfTime, completed true/false
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - orders_order_date_day
+  exploreName: orders
+  filters:
+    dimensions:
+      id: date-not-in-past
+      or:
+        - id: "1"
+          operator: notInThePast
+          settings:
+            completed: false
+            unitOfTime: days
+          target:
+            fieldId: orders_order_date_day
+          values:
+            - 90
+        - id: "2"
+          operator: notInThePast
+          settings:
+            completed: true
+            unitOfTime: weeks
+          target:
+            fieldId: orders_order_date_week
+          values:
+            - 12
+        - id: "3"
+          operator: notInThePast
+          settings:
+            completed: false
+            unitOfTime: months
+          target:
+            fieldId: orders_order_date_month
+          values:
+            - 3
+        - id: "4"
+          operator: notInThePast
+          settings:
+            completed: true
+            unitOfTime: years
+          target:
+            fieldId: orders_order_date_year
+          values:
+            - 2
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - orders_unique_order_count
+  sorts:
+    - descending: false
+      fieldId: orders_order_date_day
+  tableCalculations: []
+name: "[Filter Test] Date - NOT_IN_THE_PAST"
+slug: filter-test-date-not-in-the-past
+spaceSlug: test-sql-generation/filters
+tableConfig:
+  columnOrder:
+    - orders_order_date_day
+    - orders_unique_order_count
+tableName: orders
+verification: null
+version: 1

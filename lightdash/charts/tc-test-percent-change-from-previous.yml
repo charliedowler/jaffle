@@ -1,0 +1,64 @@
+chartConfig:
+  config:
+    eChartsConfig:
+      series:
+        - encode:
+            xRef:
+              field: orders_order_date_month
+            yRef:
+              field: orders_total_order_amount
+          type: line
+          yAxisIndex: 0
+        - encode:
+            xRef:
+              field: orders_order_date_month
+            yRef:
+              field: percent_change
+          type: line
+          yAxisIndex: 1
+    layout:
+      flipAxes: false
+      xField: orders_order_date_month
+      yField:
+        - orders_total_order_amount
+        - percent_change
+  type: cartesian
+contentType: chart
+description: Tests PERCENT_CHANGE_FROM_PREVIOUS table calculation template
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - orders_order_date_month
+  exploreName: orders
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - orders_total_order_amount
+  sorts:
+    - descending: false
+      fieldId: orders_order_date_month
+  tableCalculations:
+    - displayName: Percent Change
+      format:
+        type: percent
+      name: percent_change
+      template:
+        fieldId: orders_total_order_amount
+        orderBy:
+          - fieldId: orders_order_date_month
+            order: asc
+        type: percent_change_from_previous
+name: "[TC Test] Percent Change from Previous"
+slug: tc-test-percent-change-from-previous
+spaceSlug: test-sql-generation/table-calculations
+tableConfig:
+  columnOrder:
+    - orders_order_date_month
+    - orders_total_order_amount
+    - percent_change
+tableName: orders
+verification: null
+version: 1

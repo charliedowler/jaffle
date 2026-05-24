@@ -1,0 +1,55 @@
+chartConfig:
+  config:
+    eChartsConfig:
+      series:
+        - encode:
+            xRef:
+              field: fanouts_tracks_timestamp_month
+            yRef:
+              field: fanouts_accounts_unique_accounts
+          type: line
+          yAxisIndex: 0
+        - encode:
+            xRef:
+              field: fanouts_tracks_timestamp_month
+            yRef:
+              field: fanouts_tracks_event_count
+          type: line
+          yAxisIndex: 1
+    layout:
+      flipAxes: false
+      xField: fanouts_tracks_timestamp_month
+      yField:
+        - fanouts_accounts_unique_accounts
+        - fanouts_tracks_event_count
+  type: cartesian
+contentType: chart
+description: "Tests 3-level join chain: accounts -> deals -> users -> tracks"
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - fanouts_tracks_timestamp_month
+  exploreName: fanouts_accounts
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - fanouts_accounts_unique_accounts
+    - fanouts_tracks_event_count
+  sorts:
+    - descending: false
+      fieldId: fanouts_tracks_timestamp_month
+  tableCalculations: []
+name: "[Fanout] 3-Level Chain"
+slug: fanout-3-level-chain
+spaceSlug: test-sql-generation/fanouts
+tableConfig:
+  columnOrder:
+    - fanouts_tracks_timestamp_month
+    - fanouts_accounts_unique_accounts
+    - fanouts_tracks_event_count
+tableName: fanouts_accounts
+verification: null
+version: 1

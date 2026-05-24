@@ -1,0 +1,75 @@
+contentType: dashboard
+description: >-
+  Dashboard containing Period-over-Period test charts for SQL generation
+  verification on Athena/Trino
+filters:
+  dimensions: []
+  metrics: []
+  tableCalculations: []
+name: POP Tests Dashboard
+slug: pop-tests-dashboard
+spaceSlug: test-sql-generation/period-over-period
+tabs: []
+tiles:
+  - h: 6
+    properties:
+      chartName: "[POP Test] Orders - Day"
+      chartSlug: pop-test-orders-day
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: pop-test-orders-day
+    type: saved_chart
+    w: 18
+    x: 0
+    "y": 0
+  - h: 6
+    properties:
+      chartName: "[POP Test] Subscriptions - Week"
+      chartSlug: pop-test-subscriptions-week
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: pop-test-subscriptions-week
+    type: saved_chart
+    w: 18
+    x: 18
+    "y": 0
+  - h: 6
+    properties:
+      chartName: "[POP Test] Orders - Month"
+      chartSlug: pop-test-orders-month
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: pop-test-orders-month
+    type: saved_chart
+    w: 18
+    x: 0
+    "y": 6
+  - h: 6
+    properties:
+      chartName: "[POP Test] Orders - Quarter"
+      chartSlug: pop-test-orders-quarter
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: pop-test-orders-quarter
+    type: saved_chart
+    w: 18
+    x: 18
+    "y": 6
+  - h: 6
+    properties:
+      chartName: "[POP Test] Orders - Year"
+      chartSlug: pop-test-orders-year
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: pop-test-orders-year
+    type: saved_chart
+    w: 18
+    x: 0
+    "y": 12
+verification: null
+version: 1

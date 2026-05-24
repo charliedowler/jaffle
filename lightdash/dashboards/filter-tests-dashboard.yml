@@ -1,0 +1,241 @@
+contentType: dashboard
+description: Dashboard containing all filter test charts for SQL generation verification
+filters:
+  dimensions: []
+  metrics: []
+  tableCalculations: []
+name: Filter Tests Dashboard
+slug: filter-tests-dashboard
+spaceSlug: test-sql-generation/filters
+tabs: []
+tiles:
+  - h: 6
+    properties:
+      chartName: "[Filter Test] String - All Operators"
+      chartSlug: filter-test-string-all-operators
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: filter-test-string-all-operators
+    type: saved_chart
+    w: 9
+    x: 0
+    "y": 0
+  - h: 6
+    properties:
+      chartName: "[Filter Test] String - Null"
+      chartSlug: filter-test-string-null
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: filter-test-string-null
+    type: saved_chart
+    w: 9
+    x: 9
+    "y": 0
+  - h: 6
+    properties:
+      chartName: "[Filter Test] Number - All Operators"
+      chartSlug: filter-test-number-all-operators
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: filter-test-number-all-operators
+    type: saved_chart
+    w: 9
+    x: 18
+    "y": 0
+  - h: 6
+    properties:
+      chartName: "[Filter Test] Number - Null"
+      chartSlug: filter-test-number-null
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: filter-test-number-null
+    type: saved_chart
+    w: 9
+    x: 27
+    "y": 0
+  - h: 6
+    properties:
+      chartName: "[Filter Test] Date - Basic (DAY)"
+      chartSlug: filter-test-date-basic-day
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: filter-test-date-basic-day
+    type: saved_chart
+    w: 9
+    x: 0
+    "y": 6
+  - h: 6
+    properties:
+      chartName: "[Filter Test] Date - Basic (WEEK)"
+      chartSlug: filter-test-date-basic-week
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: filter-test-date-basic-week
+    type: saved_chart
+    w: 9
+    x: 9
+    "y": 6
+  - h: 6
+    properties:
+      chartName: "[Filter Test] Date - Basic (MONTH)"
+      chartSlug: filter-test-date-basic-month
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: filter-test-date-basic-month
+    type: saved_chart
+    w: 9
+    x: 18
+    "y": 6
+  - h: 6
+    properties:
+      chartName: "[Filter Test] Date - Basic (YEAR)"
+      chartSlug: filter-test-date-basic-year
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: filter-test-date-basic-year
+    type: saved_chart
+    w: 9
+    x: 27
+    "y": 6
+  - h: 6
+    properties:
+      chartName: "[Filter Test] Date - IN_THE_PAST"
+      chartSlug: filter-test-date-in-the-past
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: filter-test-date-in-the-past
+    type: saved_chart
+    w: 9
+    x: 0
+    "y": 12
+  - h: 6
+    properties:
+      chartName: "[Filter Test] Date - NOT_IN_THE_PAST"
+      chartSlug: filter-test-date-not-in-the-past
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: filter-test-date-not-in-the-past
+    type: saved_chart
+    w: 9
+    x: 9
+    "y": 12
+  - h: 6
+    properties:
+      chartName: "[Filter Test] Date - IN_THE_NEXT"
+      chartSlug: filter-test-date-in-the-next
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: filter-test-date-in-the-next
+    type: saved_chart
+    w: 9
+    x: 18
+    "y": 12
+  - h: 6
+    properties:
+      chartName: "[Filter Test] Date - IN_THE_CURRENT"
+      chartSlug: filter-test-date-in-the-current
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: filter-test-date-in-the-current
+    type: saved_chart
+    w: 9
+    x: 27
+    "y": 12
+  - h: 6
+    properties:
+      chartName: "[Filter Test] Date - NOT_IN_THE_CURRENT"
+      chartSlug: filter-test-date-not-in-the-current
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: filter-test-date-not-in-the-current
+    type: saved_chart
+    w: 9
+    x: 0
+    "y": 18
+  - h: 6
+    properties:
+      chartName: "[Filter Test] Date - Null"
+      chartSlug: filter-test-date-null
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: filter-test-date-null
+    type: saved_chart
+    w: 9
+    x: 9
+    "y": 18
+  - h: 6
+    properties:
+      chartName: "[Filter Test] Timestamp - All Operators"
+      chartSlug: filter-test-timestamp-all-operators
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: filter-test-timestamp-all-operators
+    type: saved_chart
+    w: 9
+    x: 18
+    "y": 18
+  - h: 6
+    properties:
+      chartName: "[Filter Test] Boolean - All Operators"
+      chartSlug: filter-test-boolean-all-operators
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: filter-test-boolean-all-operators
+    type: saved_chart
+    w: 9
+    x: 27
+    "y": 18
+  - h: 6
+    properties:
+      chartName: "[Filter Test] Boolean - Null"
+      chartSlug: filter-test-boolean-null
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: filter-test-boolean-null
+    type: saved_chart
+    w: 9
+    x: 0
+    "y": 24
+  - h: 6
+    properties:
+      chartName: "[Filter Test] Mixed - All Types"
+      chartSlug: filter-test-mixed-all-types
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: filter-test-mixed-all-types
+    type: saved_chart
+    w: 9
+    x: 9
+    "y": 24
+  - h: 6
+    properties:
+      chartName: "[Filter Test] Nested Logic"
+      chartSlug: filter-test-nested-logic
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: filter-test-nested-logic
+    type: saved_chart
+    w: 9
+    x: 18
+    "y": 24
+verification: null
+version: 1

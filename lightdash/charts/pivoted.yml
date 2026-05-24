@@ -1,0 +1,48 @@
+chartConfig:
+  config:
+    columns: {}
+    conditionalFormattings: []
+    hideRowNumbers: false
+    metricsAsRows: false
+    showColumnCalculation: true
+    showResultsTotal: false
+    showRowCalculation: true
+    showSubtotals: false
+    showTableNames: false
+  type: table
+contentType: chart
+description: >-
+  Compares the ratio of event IDs by event tier against the sum of event IDs
+  with currency parameters to identify which event tiers utilize currency
+  parameters most frequently.
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - events_event_tier
+  exploreName: events
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - events_with_currency_parameter
+  sorts:
+    - descending: false
+      fieldId: events_event_tier
+  tableCalculations: []
+name: Pivoted
+parameters:
+  currency: gbp
+pivotConfig:
+  columns:
+    - events_event_tier
+slug: pivoted
+spaceSlug: jaffle-shop
+tableConfig:
+  columnOrder:
+    - events_event_tier
+    - events_with_currency_parameter
+tableName: events
+verification: null
+version: 1

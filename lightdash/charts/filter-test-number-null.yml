@@ -1,0 +1,42 @@
+chartConfig:
+  config: null
+  type: table
+contentType: chart
+description: Tests NULL and NOT_NULL operators on number fields
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - orders_tax_rate
+  exploreName: orders
+  filters:
+    dimensions:
+      id: number-null
+      or:
+        - id: "1"
+          operator: isNull
+          target:
+            fieldId: orders_tax_rate
+        - id: "2"
+          operator: notNull
+          target:
+            fieldId: orders_amount
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - orders_unique_order_count
+  sorts:
+    - descending: false
+      fieldId: orders_tax_rate
+  tableCalculations: []
+name: "[Filter Test] Number - Null"
+slug: filter-test-number-null
+spaceSlug: test-sql-generation/filters
+tableConfig:
+  columnOrder:
+    - orders_tax_rate
+    - orders_unique_order_count
+tableName: orders
+verification: null
+version: 1

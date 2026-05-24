@@ -1,0 +1,81 @@
+chartConfig:
+  config:
+    spec:
+      $schema: https://vega.github.io/schema/vega-lite/v6.json
+      description: Distinct order counts by browser and month.
+      facet:
+        row:
+          field: orders_shipping_method
+          title: Browser
+          type: nominal
+      resolve:
+        scale:
+          "y": independent
+      spec:
+        encoding:
+          color:
+            field: orders_shipping_method
+            legend: null
+            type: nominal
+          tooltip:
+            - field: orders_shipping_method
+              title: Browser
+              type: nominal
+            - field: orders_order_date_day
+              title: Order Month
+              type: temporal
+            - field: orders_unique_order_count
+              title: Distinct Orders
+              type: quantitative
+          x:
+            axis:
+              grid: true
+            field: orders_order_date_day
+            title: Order Month
+            type: temporal
+          "y":
+            axis:
+              grid: false
+            field: orders_unique_order_count
+            title: Distinct Orders
+            type: quantitative
+        height: 60
+        mark: area
+        width: 600
+  type: custom
+contentType: chart
+description: ""
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - orders_order_date_day
+    - orders_shipping_method
+  exploreName: orders
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - orders_unique_order_count
+  sorts:
+    - descending: false
+      fieldId: orders_order_date_day
+  tableCalculations:
+    - displayName: Cumulative order count
+      name: cumulative_order_count
+      sql: |-
+        SUM(${orders.unique_order_count})
+        OVER(ORDER BY ${orders.order_date_day})
+name: Shipping counts by method
+slug: shipping-counts-by-method
+spaceSlug: jaffle-shop
+tableConfig:
+  columnOrder:
+    - orders_order_date_day
+    - orders_shipping_method
+    - orders_unique_order_count
+    - cumulative_order_count
+tableName: orders
+verification: null
+version: 1

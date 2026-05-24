@@ -1,0 +1,25 @@
+contentType: dashboard
+description: null
+filters:
+  dimensions: []
+  metrics: []
+  tableCalculations: []
+name: Dashboard with dashboard charts
+slug: dashboard-with-dashboard-charts
+spaceSlug: jaffle-shop
+tabs: []
+tiles:
+  - h: 9
+    properties:
+      chartName: "[Saved in dashboard] How much revenue do we have per payment method?"
+      chartSlug: saved-in-dashboard-how-much-revenue-do-we-have-per-payment-method
+      hideTitle: false
+      title: ""
+    tabUuid: null
+    tileSlug: saved-in-dashboard-how-much-revenue-do-we-have-per-payment-method
+    type: saved_chart
+    w: 24
+    x: 0
+    "y": 0
+verification: null
+version: 1

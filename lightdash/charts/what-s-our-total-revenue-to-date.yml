@@ -1,0 +1,36 @@
+chartConfig:
+  config:
+    label: Payments total revenue
+  type: big_number
+contentType: chart
+description: A single number showing the sum of all historical revenue
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - orders_status
+  exploreName: payments
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - payments_total_revenue
+  sorts:
+    - descending: true
+      fieldId: payments_total_revenue
+  tableCalculations:
+    - displayName: total revenue
+      name: total_revenue
+      sql: SUM(${payments.total_revenue}) OVER(PARTITION BY NULL)
+name: What's our total revenue to date?
+slug: what-s-our-total-revenue-to-date
+spaceSlug: jaffle-shop
+tableConfig:
+  columnOrder:
+    - orders_status
+    - payments_total_revenue
+    - total_revenue
+tableName: payments
+verification: null
+version: 1

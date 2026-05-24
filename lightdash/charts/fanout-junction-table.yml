@@ -1,0 +1,33 @@
+chartConfig:
+  config: null
+  type: table
+contentType: chart
+description: "Tests junction table pattern: accounts -> deals -> user_deals -> users"
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - fanouts_user_deals_role
+  exploreName: fanouts_accounts_bridged_fanout
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - fanouts_accounts_bridged_fanout_unique_accounts
+    - fanouts_users_unique_user_count
+  sorts:
+    - descending: true
+      fieldId: fanouts_users_unique_user_count
+  tableCalculations: []
+name: "[Fanout] Junction Table"
+slug: fanout-junction-table
+spaceSlug: test-sql-generation/fanouts
+tableConfig:
+  columnOrder:
+    - fanouts_user_deals_role
+    - fanouts_accounts_bridged_fanout_unique_accounts
+    - fanouts_users_unique_user_count
+tableName: fanouts_accounts_bridged_fanout
+verification: null
+version: 1

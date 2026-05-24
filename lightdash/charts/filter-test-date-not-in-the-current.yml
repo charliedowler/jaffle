@@ -1,0 +1,66 @@
+chartConfig:
+  config: null
+  type: table
+contentType: chart
+description: Tests NOT_IN_THE_CURRENT with all UnitOfTime
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - orders_order_date_day
+  exploreName: orders
+  filters:
+    dimensions:
+      id: date-not-in-current
+      or:
+        - id: "1"
+          operator: notInTheCurrent
+          settings:
+            unitOfTime: days
+          target:
+            fieldId: orders_order_date_day
+          values:
+            - 1
+        - id: "2"
+          operator: notInTheCurrent
+          settings:
+            unitOfTime: weeks
+          target:
+            fieldId: orders_order_date_week
+          values:
+            - 1
+        - id: "3"
+          operator: notInTheCurrent
+          settings:
+            unitOfTime: months
+          target:
+            fieldId: orders_order_date_month
+          values:
+            - 1
+        - id: "4"
+          operator: notInTheCurrent
+          settings:
+            unitOfTime: years
+          target:
+            fieldId: orders_order_date_year
+          values:
+            - 1
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - orders_unique_order_count
+  sorts:
+    - descending: false
+      fieldId: orders_order_date_day
+  tableCalculations: []
+name: "[Filter Test] Date - NOT_IN_THE_CURRENT"
+slug: filter-test-date-not-in-the-current
+spaceSlug: test-sql-generation/filters
+tableConfig:
+  columnOrder:
+    - orders_order_date_day
+    - orders_unique_order_count
+tableName: orders
+verification: null
+version: 1

@@ -1,0 +1,28 @@
+chartConfig:
+  config: null
+  type: cartesian
+contentType: chart
+dashboardSlug: dashboard-with-dashboard-charts
+description: ""
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - payments_payment_method
+  exploreName: payments
+  filters: {}
+  limit: 10
+  metricOverrides: {}
+  metrics: []
+  sorts: []
+  tableCalculations: []
+name: To delete
+slug: to-delete
+spaceSlug: jaffle-shop
+tableConfig:
+  columnOrder:
+    - payments_payment_method
+tableName: payments
+verification: null
+version: 1

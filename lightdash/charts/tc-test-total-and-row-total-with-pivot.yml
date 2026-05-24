@@ -1,0 +1,56 @@
+chartConfig:
+  config: null
+  type: table
+contentType: chart
+description: >-
+  Tests total() and row_total() aggregate table calculation functions with pivot
+  on region
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - regional_sales_sale_date_month
+    - regional_sales_region
+  exploreName: regional_sales
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - regional_sales_total_revenue
+  sorts:
+    - descending: true
+      fieldId: regional_sales_sale_date_month
+  tableCalculations:
+    - displayName: "% of Grand Total"
+      format:
+        round: 1
+        separator: default
+        type: percent
+      name: _of_grand_total
+      sql: ${regional_sales.total_revenue} / total(${regional_sales.total_revenue})
+    - displayName: "% of Monthly Total"
+      format:
+        round: 1
+        separator: default
+        type: percent
+      name: _of_monthly_total
+      sql: >-
+        ${regional_sales.total_revenue} /
+        row_total(${regional_sales.total_revenue})
+name: "[TC Test] Total and Row Total with Pivot"
+pivotConfig:
+  columns:
+    - regional_sales_region
+slug: tc-test-total-and-row-total-with-pivot
+spaceSlug: test-sql-generation/table-calculations
+tableConfig:
+  columnOrder:
+    - regional_sales_sale_date_month
+    - regional_sales_region
+    - regional_sales_total_revenue
+    - _of_grand_total
+    - _of_monthly_total
+tableName: regional_sales
+verification: null
+version: 1

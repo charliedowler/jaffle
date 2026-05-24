@@ -1,0 +1,33 @@
+chartConfig:
+  config: null
+  type: table
+contentType: chart
+description: "Tests one-to-one join: users -> addresses relationship"
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - fanouts_addresses_city
+  exploreName: fanouts_accounts_bridged_fanout
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - fanouts_addresses_unique_city_count
+    - fanouts_users_unique_user_count
+  sorts:
+    - descending: true
+      fieldId: fanouts_users_unique_user_count
+  tableCalculations: []
+name: "[Fanout] One-to-One Addresses"
+slug: fanout-one-to-one-addresses
+spaceSlug: test-sql-generation/fanouts
+tableConfig:
+  columnOrder:
+    - fanouts_addresses_city
+    - fanouts_addresses_unique_city_count
+    - fanouts_users_unique_user_count
+tableName: fanouts_accounts_bridged_fanout
+verification: null
+version: 1

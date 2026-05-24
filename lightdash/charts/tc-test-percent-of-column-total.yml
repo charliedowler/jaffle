@@ -1,0 +1,44 @@
+chartConfig:
+  config:
+    groupFieldIds:
+      - orders_status
+    isDonut: false
+    metricId: percent_of_total
+  type: pie
+contentType: chart
+description: Tests PERCENT_OF_COLUMN_TOTAL table calculation template
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - orders_status
+  exploreName: orders
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - orders_total_order_amount
+  sorts:
+    - descending: true
+      fieldId: orders_total_order_amount
+  tableCalculations:
+    - displayName: Percent of Total
+      format:
+        type: percent
+      name: percent_of_total
+      template:
+        fieldId: orders_total_order_amount
+        partitionBy: []
+        type: percent_of_column_total
+name: "[TC Test] Percent of Column Total"
+slug: tc-test-percent-of-column-total
+spaceSlug: test-sql-generation/table-calculations
+tableConfig:
+  columnOrder:
+    - orders_status
+    - orders_total_order_amount
+    - percent_of_total
+tableName: orders
+verification: null
+version: 1

@@ -1,0 +1,52 @@
+chartConfig:
+  config: null
+  type: table
+contentType: chart
+description: Tests EQUALS, LESS_THAN_OR_EQUAL, GREATER_THAN_OR_EQUAL on WEEK interval
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - orders_order_date_week
+  exploreName: orders
+  filters:
+    dimensions:
+      and:
+        - id: "1"
+          operator: equals
+          target:
+            fieldId: orders_order_date_week
+          values:
+            - "2024-06-10"
+        - id: "2"
+          operator: lessThanOrEqual
+          target:
+            fieldId: orders_order_date_week
+          values:
+            - "2024-12-31"
+        - id: "3"
+          operator: greaterThanOrEqual
+          target:
+            fieldId: orders_order_date_week
+          values:
+            - "2024-01-01"
+      id: date-basic-week
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - orders_unique_order_count
+  sorts:
+    - descending: false
+      fieldId: orders_order_date_week
+  tableCalculations: []
+name: "[Filter Test] Date - Basic (WEEK)"
+slug: filter-test-date-basic-week
+spaceSlug: test-sql-generation/filters
+tableConfig:
+  columnOrder:
+    - orders_order_date_week
+    - orders_unique_order_count
+tableName: orders
+verification: null
+version: 1

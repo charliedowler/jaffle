@@ -1,0 +1,75 @@
+chartConfig:
+  config:
+    eChartsConfig:
+      series:
+        - encode:
+            xRef:
+              field: events_date_day
+            yRef:
+              field: events_count
+              pivotValues:
+                - field: events_event_tier
+                  value: High
+          type: scatter
+          yAxisIndex: 0
+        - encode:
+            xRef:
+              field: events_date_day
+            yRef:
+              field: events_count
+              pivotValues:
+                - field: events_event_tier
+                  value: Low
+          type: scatter
+          yAxisIndex: 0
+        - encode:
+            xRef:
+              field: events_date_day
+            yRef:
+              field: events_count
+              pivotValues:
+                - field: events_event_tier
+                  value: Very high
+          type: scatter
+          yAxisIndex: 0
+      showAxisTicks: false
+    layout:
+      flipAxes: false
+      stack: none
+      xField: events_date_day
+      yField:
+        - events_count
+  type: cartesian
+contentType: chart
+description: Daily event distribution shown as scatter chart.
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - events_event_tier
+    - events_date_day
+  exploreName: events
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - events_count
+  sorts:
+    - descending: false
+      fieldId: events_event_tier
+  tableCalculations: []
+name: scatter day
+pivotConfig:
+  columns:
+    - events_event_tier
+slug: scatter-day
+spaceSlug: jaffle-shop
+tableConfig:
+  columnOrder:
+    - events_event_tier
+    - events_date_day
+    - events_count
+tableName: events
+verification: null
+version: 1

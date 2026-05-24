@@ -1,0 +1,35 @@
+chartConfig:
+  config:
+    groupFieldIds:
+      - fanouts_countries_country_name
+    isDonut: false
+    metricId: fanouts_accounts_bridged_fanout_unique_accounts
+  type: pie
+contentType: chart
+description: "Tests many-to-one join: addresses -> countries relationship"
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - fanouts_countries_country_name
+  exploreName: fanouts_accounts_bridged_fanout
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - fanouts_accounts_bridged_fanout_unique_accounts
+  sorts:
+    - descending: true
+      fieldId: fanouts_accounts_bridged_fanout_unique_accounts
+  tableCalculations: []
+name: "[Fanout] Many-to-One Countries"
+slug: fanout-many-to-one-countries
+spaceSlug: test-sql-generation/fanouts
+tableConfig:
+  columnOrder:
+    - fanouts_countries_country_name
+    - fanouts_accounts_bridged_fanout_unique_accounts
+tableName: fanouts_accounts_bridged_fanout
+verification: null
+version: 1

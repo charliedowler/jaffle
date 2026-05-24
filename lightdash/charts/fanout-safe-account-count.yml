@@ -1,0 +1,31 @@
+chartConfig:
+  config: null
+  type: table
+contentType: chart
+description: Tests COUNT_DISTINCT - safe aggregation that does not inflate with joins
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - fanouts_accounts_segment
+  exploreName: fanouts_accounts
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - fanouts_accounts_unique_accounts
+  sorts:
+    - descending: true
+      fieldId: fanouts_accounts_unique_accounts
+  tableCalculations: []
+name: "[Fanout] Safe Account Count"
+slug: fanout-safe-account-count
+spaceSlug: test-sql-generation/fanouts
+tableConfig:
+  columnOrder:
+    - fanouts_accounts_segment
+    - fanouts_accounts_unique_accounts
+tableName: fanouts_accounts
+verification: null
+version: 1

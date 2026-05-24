@@ -1,0 +1,49 @@
+chartConfig:
+  config:
+    columns: {}
+    conditionalFormattings: []
+    hideRowNumbers: false
+    metricsAsRows: false
+    showColumnCalculation: false
+    showResultsTotal: false
+    showRowCalculation: false
+    showSubtotals: false
+    showTableNames: false
+  type: table
+contentType: chart
+description: Table filtered to a date with no data
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - orders_status
+  exploreName: orders
+  filters:
+    dimensions:
+      and:
+        - id: 5e4f85ff-684f-49e3-a8fb-1f69edb53c3c
+          operator: equals
+          target:
+            fieldId: orders_order_date
+          values:
+            - "2099-01-15"
+      id: 2897770b-2ee9-4222-8cef-77f1d2a78d6d
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - orders_total_shipping_revenue
+  sorts:
+    - descending: true
+      fieldId: orders_total_shipping_revenue
+  tableCalculations: []
+name: Order status and shipping (no results)
+slug: order-status-shipping-revenue-empty
+spaceSlug: jaffle-shop
+tableConfig:
+  columnOrder:
+    - orders_status
+    - orders_total_shipping_revenue
+tableName: orders
+verification: null
+version: 1

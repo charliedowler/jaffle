@@ -1,0 +1,37 @@
+chartConfig:
+  config: null
+  type: table
+contentType: chart
+description: Tests RANK_IN_COLUMN table calculation template
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - orders_order_date_month
+  exploreName: orders
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - orders_total_order_amount
+  sorts:
+    - descending: true
+      fieldId: orders_total_order_amount
+  tableCalculations:
+    - displayName: Rank
+      name: rank
+      template:
+        fieldId: orders_total_order_amount
+        type: rank_in_column
+name: "[TC Test] Rank in Column"
+slug: tc-test-rank-in-column
+spaceSlug: test-sql-generation/table-calculations
+tableConfig:
+  columnOrder:
+    - orders_order_date_month
+    - orders_total_order_amount
+    - rank
+tableName: orders
+verification: null
+version: 1

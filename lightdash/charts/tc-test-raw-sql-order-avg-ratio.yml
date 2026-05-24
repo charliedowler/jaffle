@@ -1,0 +1,41 @@
+chartConfig:
+  config: null
+  type: table
+contentType: chart
+description: Tests raw SQL table calculation
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - orders_order_date_month
+  exploreName: orders
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - orders_total_order_amount
+    - orders_unique_order_count
+  sorts:
+    - descending: false
+      fieldId: orders_order_date_month
+  tableCalculations:
+    - displayName: Avg Order Value (Raw SQL)
+      format:
+        currency: USD
+        round: 2
+        type: currency
+      name: avg_order_value
+      sql: ${orders_total_order_amount} / NULLIF(${orders_unique_order_count}, 0)
+name: "[TC Test] Raw SQL - Order Avg Ratio"
+slug: tc-test-raw-sql-order-avg-ratio
+spaceSlug: test-sql-generation/table-calculations
+tableConfig:
+  columnOrder:
+    - orders_order_date_month
+    - orders_total_order_amount
+    - orders_unique_order_count
+    - avg_order_value
+tableName: orders
+verification: null
+version: 1

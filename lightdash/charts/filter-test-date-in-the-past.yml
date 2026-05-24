@@ -1,0 +1,88 @@
+chartConfig:
+  config: null
+  type: table
+contentType: chart
+description: Tests IN_THE_PAST with days/weeks/months/quarters/years, completed true/false
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - orders_order_date_day
+  exploreName: orders
+  filters:
+    dimensions:
+      id: date-in-past
+      or:
+        - id: "1"
+          operator: inThePast
+          settings:
+            completed: false
+            unitOfTime: days
+          target:
+            fieldId: orders_order_date_day
+          values:
+            - 30
+        - id: "2"
+          operator: inThePast
+          settings:
+            completed: true
+            unitOfTime: days
+          target:
+            fieldId: orders_order_date_day
+          values:
+            - 7
+        - id: "3"
+          operator: inThePast
+          settings:
+            completed: false
+            unitOfTime: weeks
+          target:
+            fieldId: orders_order_date_week
+          values:
+            - 4
+        - id: "4"
+          operator: inThePast
+          settings:
+            completed: true
+            unitOfTime: months
+          target:
+            fieldId: orders_order_date_month
+          values:
+            - 6
+        - id: "5"
+          operator: inThePast
+          settings:
+            completed: false
+            unitOfTime: quarters
+          target:
+            fieldId: orders_order_date_month
+          values:
+            - 2
+        - id: "6"
+          operator: inThePast
+          settings:
+            completed: true
+            unitOfTime: years
+          target:
+            fieldId: orders_order_date_year
+          values:
+            - 1
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - orders_unique_order_count
+  sorts:
+    - descending: false
+      fieldId: orders_order_date_day
+  tableCalculations: []
+name: "[Filter Test] Date - IN_THE_PAST"
+slug: filter-test-date-in-the-past
+spaceSlug: test-sql-generation/filters
+tableConfig:
+  columnOrder:
+    - orders_order_date_day
+    - orders_unique_order_count
+tableName: orders
+verification: null
+version: 1

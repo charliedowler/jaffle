@@ -1,0 +1,63 @@
+chartConfig:
+  config:
+    eChartsConfig:
+      series:
+        - encode:
+            xRef:
+              field: visit_analytics_visit_date_month
+            yRef:
+              field: visit_analytics_total_visits
+          markLine:
+            data:
+              - label:
+                  position: end
+                lineStyle:
+                  color: "#000"
+                type: average
+                uuid: 282dc2f2-7736-42ba-be6a-f75d674dd65b
+            lineStyle:
+              color: "#000"
+              type: solid
+              width: 3
+            symbol: none
+          type: bar
+          yAxisIndex: 0
+      showAxisTicks: false
+    layout:
+      xField: visit_analytics_visit_date_month
+      yField:
+        - visit_analytics_total_visits
+  type: cartesian
+contentType: chart
+description: Monthly visit analytics showing trends over time.
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - visit_analytics_visit_date_month
+    - visit_analytics_bmi_category
+  exploreName: visit_analytics
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - visit_analytics_total_visits
+  sorts:
+    - descending: false
+      fieldId: visit_analytics_bmi_category
+  tableCalculations: []
+name: month
+pivotConfig:
+  columns:
+    - visit_analytics_bmi_category
+slug: month-1
+spaceSlug: jaffle-shop
+tableConfig:
+  columnOrder:
+    - visit_analytics_visit_date_month
+    - visit_analytics_bmi_category
+    - visit_analytics_total_visits
+tableName: visit_analytics
+verification: null
+version: 1

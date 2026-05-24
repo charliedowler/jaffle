@@ -1,0 +1,72 @@
+chartConfig:
+  config:
+    eChartsConfig:
+      series:
+        - encode:
+            xRef:
+              field: orders_order_date_day
+            yRef:
+              field: orders_total_order_amount
+          type: line
+          yAxisIndex: 0
+        - encode:
+            xRef:
+              field: orders_order_date_day
+            yRef:
+              field: orders_total_order_amount__pop__day_1__yz02hy
+          type: line
+          yAxisIndex: 0
+    layout:
+      flipAxes: false
+      xField: orders_order_date_day
+      yField:
+        - orders_total_order_amount
+        - orders_total_order_amount__pop__day_1__yz02hy
+  type: cartesian
+contentType: chart
+description: >-
+  Tests POP with DAY granularity on orders model. Verifies getIntervalSyntax()
+  for Athena/Trino.
+metricQuery:
+  additionalMetrics:
+    - baseMetricId: orders_total_order_amount
+      description: Sum of Amount
+      format: usd
+      generationType: periodOverPeriod
+      granularity: DAY
+      hidden: true
+      label: Total order amount (Previous day)
+      name: total_order_amount__pop__day_1__yz02hy
+      periodOffset: 1
+      round: 2
+      sql: ${TABLE}.amount
+      table: orders
+      timeDimensionId: orders_order_date_day
+      type: sum
+      uuid: 42a67e78-9364-4603-9649-0a246a606ac0
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - orders_order_date_day
+  exploreName: orders
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - orders_total_order_amount
+    - orders_total_order_amount__pop__day_1__yz02hy
+  sorts:
+    - descending: false
+      fieldId: orders_order_date_day
+  tableCalculations: []
+name: "[POP Test] Orders - Day"
+slug: pop-test-orders-day
+spaceSlug: test-sql-generation/period-over-period
+tableConfig:
+  columnOrder:
+    - orders_order_date_day
+    - orders_total_order_amount
+    - orders_total_order_amount__pop__day_1__yz02hy
+tableName: orders
+verification: null
+version: 1

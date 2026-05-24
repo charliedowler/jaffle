@@ -1,0 +1,42 @@
+chartConfig:
+  config: null
+  type: table
+contentType: chart
+description: Tests NULL and NOT_NULL operators on string fields
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - orders_promo_code
+  exploreName: orders
+  filters:
+    dimensions:
+      id: string-null
+      or:
+        - id: "1"
+          operator: isNull
+          target:
+            fieldId: orders_promo_code
+        - id: "2"
+          operator: notNull
+          target:
+            fieldId: orders_order_notes
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - orders_unique_order_count
+  sorts:
+    - descending: false
+      fieldId: orders_promo_code
+  tableCalculations: []
+name: "[Filter Test] String - Null"
+slug: filter-test-string-null
+spaceSlug: test-sql-generation/filters
+tableConfig:
+  columnOrder:
+    - orders_promo_code
+    - orders_unique_order_count
+tableName: orders
+verification: null
+version: 1

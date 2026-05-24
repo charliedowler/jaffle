@@ -1,0 +1,49 @@
+chartConfig:
+  config: null
+  type: table
+contentType: chart
+description: >-
+  Tests EQUALS, IN_BETWEEN on MONTH interval (NOT_IN_BETWEEN not implemented for
+  dates)
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - orders_order_date_month
+  exploreName: orders
+  filters:
+    dimensions:
+      and:
+        - id: "1"
+          operator: equals
+          target:
+            fieldId: orders_order_date_month
+          values:
+            - "2024-06-01"
+        - id: "2"
+          operator: inBetween
+          target:
+            fieldId: orders_order_date_month
+          values:
+            - "2024-01-01"
+            - "2024-06-01"
+      id: date-basic-month
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - orders_unique_order_count
+  sorts:
+    - descending: false
+      fieldId: orders_order_date_month
+  tableCalculations: []
+name: "[Filter Test] Date - Basic (MONTH)"
+slug: filter-test-date-basic-month
+spaceSlug: test-sql-generation/filters
+tableConfig:
+  columnOrder:
+    - orders_order_date_month
+    - orders_unique_order_count
+tableName: orders
+verification: null
+version: 1

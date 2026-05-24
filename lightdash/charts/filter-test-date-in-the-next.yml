@@ -1,0 +1,66 @@
+chartConfig:
+  config: null
+  type: table
+contentType: chart
+description: Tests IN_THE_NEXT with days/weeks/months/years
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - orders_order_date_day
+  exploreName: orders
+  filters:
+    dimensions:
+      id: date-in-next
+      or:
+        - id: "1"
+          operator: inTheNext
+          settings:
+            unitOfTime: days
+          target:
+            fieldId: orders_order_date_day
+          values:
+            - 14
+        - id: "2"
+          operator: inTheNext
+          settings:
+            unitOfTime: weeks
+          target:
+            fieldId: orders_order_date_week
+          values:
+            - 2
+        - id: "3"
+          operator: inTheNext
+          settings:
+            unitOfTime: months
+          target:
+            fieldId: orders_order_date_month
+          values:
+            - 3
+        - id: "4"
+          operator: inTheNext
+          settings:
+            unitOfTime: years
+          target:
+            fieldId: orders_order_date_year
+          values:
+            - 1
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - orders_unique_order_count
+  sorts:
+    - descending: false
+      fieldId: orders_order_date_day
+  tableCalculations: []
+name: "[Filter Test] Date - IN_THE_NEXT"
+slug: filter-test-date-in-the-next
+spaceSlug: test-sql-generation/filters
+tableConfig:
+  columnOrder:
+    - orders_order_date_day
+    - orders_unique_order_count
+tableName: orders
+verification: null
+version: 1

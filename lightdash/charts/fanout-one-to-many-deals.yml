@@ -1,0 +1,55 @@
+chartConfig:
+  config:
+    eChartsConfig:
+      series:
+        - encode:
+            xRef:
+              field: fanouts_accounts_segment
+            yRef:
+              field: fanouts_accounts_unique_accounts
+          type: bar
+          yAxisIndex: 0
+        - encode:
+            xRef:
+              field: fanouts_accounts_segment
+            yRef:
+              field: fanouts_deals_total_deal_value
+          type: bar
+          yAxisIndex: 1
+    layout:
+      flipAxes: false
+      xField: fanouts_accounts_segment
+      yField:
+        - fanouts_accounts_unique_accounts
+        - fanouts_deals_total_deal_value
+  type: cartesian
+contentType: chart
+description: "Tests one-to-many join: accounts -> deals relationship"
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - fanouts_accounts_segment
+  exploreName: fanouts_accounts
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - fanouts_accounts_unique_accounts
+    - fanouts_deals_total_deal_value
+  sorts:
+    - descending: true
+      fieldId: fanouts_deals_total_deal_value
+  tableCalculations: []
+name: "[Fanout] One-to-Many Deals"
+slug: fanout-one-to-many-deals
+spaceSlug: test-sql-generation/fanouts
+tableConfig:
+  columnOrder:
+    - fanouts_accounts_segment
+    - fanouts_accounts_unique_accounts
+    - fanouts_deals_total_deal_value
+tableName: fanouts_accounts
+verification: null
+version: 1

@@ -1,0 +1,73 @@
+chartConfig:
+  config:
+    eChartsConfig:
+      series:
+        - encode:
+            xRef:
+              field: events_date_day
+            yRef:
+              field: events_count
+              pivotValues:
+                - field: events_event_tier
+                  value: High
+          type: line
+          yAxisIndex: 0
+        - encode:
+            xRef:
+              field: events_date_day
+            yRef:
+              field: events_count
+              pivotValues:
+                - field: events_event_tier
+                  value: Low
+          type: line
+          yAxisIndex: 0
+        - encode:
+            xRef:
+              field: events_date_day
+            yRef:
+              field: events_count
+              pivotValues:
+                - field: events_event_tier
+                  value: Very high
+          type: line
+          yAxisIndex: 0
+      showAxisTicks: false
+    layout:
+      xField: events_date_day
+      yField:
+        - events_count
+  type: cartesian
+contentType: chart
+description: Event count variation over time shown as a line chart.
+metricQuery:
+  additionalMetrics: []
+  customDimensions: []
+  dimensionOverrides: {}
+  dimensions:
+    - events_event_tier
+    - events_date_day
+  exploreName: events
+  filters: {}
+  limit: 500
+  metricOverrides: {}
+  metrics:
+    - events_count
+  sorts:
+    - descending: false
+      fieldId: events_event_tier
+  tableCalculations: []
+name: Copy of How does the count of events vary by date?
+pivotConfig:
+  columns:
+    - events_event_tier
+slug: copy-of-how-does-the-count-of-events-vary-by-date
+spaceSlug: jaffle-shop
+tableConfig:
+  columnOrder:
+    - events_event_tier
+    - events_date_day
+    - events_count
+tableName: events
+verification: null
+version: 1
