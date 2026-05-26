@@ -1,3 +1,4 @@
+# Jaffle Shop demo dbt project used for testing Lightdash functionality.
 name: jaffle_shop
 version: '0.1'
 profile: jaffle_shop
