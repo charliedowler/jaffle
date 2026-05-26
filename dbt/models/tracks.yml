@@ -1,6 +1,7 @@
 version: 2
 models:
   - name: tracks
+    description: Event tracking table containing user-triggered application events with timestamps, event names, and contextual metadata used for product analytics.
     config:
       tags: ["core", "another-ai-tag"]
     meta:
