@@ -45,7 +45,7 @@ models:
         meta:
           dimension:
             type: number
-      - name: order_date
+      - name: order_date_utc
         description: ""
         meta:
           dimension:

@@ -1,4 +1,4 @@
-id,user_id,order_date,status,order_source,shipping_method,promo_code,order_priority,estimated_delivery_days,shipping_cost,tax_rate,currency,fulfillment_center,order_notes
+id,user_id,order_date_utc,status,order_source,shipping_method,promo_code,order_priority,estimated_delivery_days,shipping_cost,tax_rate,currency,fulfillment_center,order_notes
 1,1,2023-03-15,returned,website,standard,SPRING23,normal,5,8.99,0.0875,USD,east_coast,Customer requested return - wrong size
 2,3,2023-05-22,completed,mobile_app,express,MOBILE10,high,2,15.99,0.08,USD,west_coast,Gift wrap requested
 3,94,2023-08-10,completed,website,standard,,normal,7,12.50,0.0925,USD,central,
