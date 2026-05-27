@@ -250,7 +250,7 @@ models:
               segment_by: false
         type: string
       - name: order_date
-        description: Date (UTC) that the order was placed
+        description: Order placement date (recorded in BST, UTC+1)
         config:
           meta:
             dimension:
