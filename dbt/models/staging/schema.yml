@@ -45,10 +45,11 @@ models:
         meta:
           dimension:
             type: number
-      - name: order_date
+      - name: order_date_bst
         description: ""
         meta:
           dimension:
+            label: Order Date BST
             type: date
   - name: stg_payments
     meta:
@@ -294,10 +295,11 @@ models:
         meta:
           dimension:
             type: number
-      - name: order_date
-        description: Date of the order
+      - name: order_date_bst
+        description: Date (BST) of the order
         meta:
           dimension:
+            label: Order Date BST
             type: date
       - name: country
         description: Country of the order

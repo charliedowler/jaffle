@@ -15,7 +15,7 @@ models:
             fields:
               - orders.status
               - orders.shipping_method
-              - orders.order_date
+              - orders.order_date_bst
               - orders.order_id
           test_set:
             fields:

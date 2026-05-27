@@ -8,7 +8,7 @@ final as (
 
     select
         order_id,
-        order_date,
+        order_date_bst,
         country,
         amount
 

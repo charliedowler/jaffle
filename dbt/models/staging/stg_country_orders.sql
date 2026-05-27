@@ -8,7 +8,7 @@ renamed as (
 
     select
         id as order_id,
-        order_date,
+        order_date as order_date_bst,
         country,
         amount
 

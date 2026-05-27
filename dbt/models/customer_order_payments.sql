@@ -41,7 +41,7 @@ select
 
     -- Order grain (dedupe by order_id)
     o.order_id,
-    o.order_date,
+    o.order_date_bst,
     o.status as order_status,
     o.shipping_cost,
 
