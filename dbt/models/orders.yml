@@ -16,7 +16,7 @@ models:
             metrics:
               - average_order_size
               - total_order_amount
-            time_dimension: order_date
+            time_dimension: order_date_utc
             granularity: day
           - name: orders_daily_avg_demo_2
             dimensions:
@@ -28,7 +28,7 @@ models:
               - average_order_size
               - total_order_amount
               - total_completed_order_amount
-            time_dimension: order_date
+            time_dimension: order_date_utc
             granularity: day
           - name: sql_fields_daily
             dimensions:
@@ -44,7 +44,7 @@ models:
               - semantic_ref_metric
               - mixed_expression_metric
               - average_expression_metric
-            time_dimension: order_date
+            time_dimension: order_date_utc
             granularity: day
           - name: orders_daily_number_metric_refs_demo
             dimensions:
@@ -55,7 +55,7 @@ models:
               - total_order_amount
               - total_completed_order_amount
               - completion_percentage
-            time_dimension: order_date
+            time_dimension: order_date_utc
             granularity: day
           - name: orders_daily_cross_model_number_metric_refs_demo
             dimensions:
@@ -64,7 +64,7 @@ models:
               - order_amount_plus_average_customer_age
               - total_order_amount
               - customers.average_age
-            time_dimension: order_date
+            time_dimension: order_date_utc
             granularity: day
         primary_key: order_id
         spotlight:
@@ -113,7 +113,7 @@ models:
               - total_order_amount
               - customers.average_age
         default_time_dimension:
-          field: order_date
+          field: order_date_utc
           interval: MONTH
         explores:
           orders_with_custom_dims:
@@ -130,7 +130,7 @@ models:
                 label: Order Value Category
               order_month:
                 type: date
-                sql: DATE(${orders.order_date})
+                sql: DATE(${orders.order_date_utc})
                 time_intervals: [MONTH]
     columns:
       - name: order_id
@@ -210,9 +210,9 @@ models:
           dimension:
             sql: |
               CASE
-                WHEN ${TABLE}.order_date <= ${lightdash.parameters.date_dim_parameter}
+                WHEN ${TABLE}.order_date_utc <= ${lightdash.parameters.date_dim_parameter}
                   THEN 'param is greater'
-                WHEN ${TABLE}.order_date >= ${lightdash.parameters.date_dim_parameter}
+                WHEN ${TABLE}.order_date_utc >= ${lightdash.parameters.date_dim_parameter}
                   THEN 'param is smaller'
               END
             spotlight:
@@ -225,9 +225,9 @@ models:
           dimension:
             sql: |
               CASE
-                WHEN ${TABLE}.order_date <= ${lightdash.parameters.date_custom_parameter}
+                WHEN ${TABLE}.order_date_utc <= ${lightdash.parameters.date_custom_parameter}
                   THEN 'I feel less than...'
-                WHEN ${TABLE}.order_date >= ${lightdash.parameters.date_custom_parameter}
+                WHEN ${TABLE}.order_date_utc >= ${lightdash.parameters.date_custom_parameter}
                   THEN 'I feel great!!!'
               END
             spotlight:
@@ -249,11 +249,12 @@ models:
               filter_by: false
               segment_by: false
         type: string
-      - name: order_date
+      - name: order_date_utc
         description: Date (UTC) that the order was placed
         config:
           meta:
             dimension:
+              label: "Order Date UTC"
               type: date
               time_intervals: ["DAY", "WEEK", "MONTH", "YEAR", "MONTH_NAME", "DAY_OF_WEEK_NAME", "QUARTER_NAME", "fiscal_quarter", "biweekly"]
             metrics:
@@ -263,6 +264,7 @@ models:
                 type: max
         meta:
           dimension:
+            label: "Order Date UTC"
             type: date
       - name: status
         description: '{{ doc("orders_status") }}'
@@ -338,7 +340,7 @@ models:
                 format: usd
                 round: 2
                 default_time_dimension:
-                  field: order_date
+                  field: order_date_utc
                   interval: DAY
                 spotlight:
                   categories: ["revenue_growth"]

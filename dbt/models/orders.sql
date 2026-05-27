@@ -39,7 +39,7 @@ final as (
         orders.order_id,
         {% endif %}
         orders.customer_id,
-        orders.order_date,
+        orders.order_date_utc,
         orders.status,
         case when status = 'completed' then TRUE else FALSE end AS is_completed,
         orders.order_source,
