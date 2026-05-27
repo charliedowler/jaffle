@@ -29,10 +29,11 @@ models:
             type: number
             hidden: true
 
-      - name: order_date
-        description: Date the order was placed
+      - name: order_date_utc
+        description: Date (UTC) the order was placed
         meta:
           dimension:
+            label: Order Date UTC
             type: date
 
       - name: country

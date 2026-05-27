@@ -50,11 +50,12 @@ models:
                 type: count_distinct
                 description: Count of unique orders
 
-      - name: order_date
-        description: Date the order was placed
+      - name: order_date_utc
+        description: Date (UTC) the order was placed
         config:
           meta:
             dimension:
+              label: Order Date UTC
               type: date
 
       - name: order_status
