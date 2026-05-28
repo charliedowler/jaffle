@@ -7,7 +7,7 @@ models:
 
       {{ doc("orders_status") }}
     config:
-      tags: ["core", "ai"]
+      tags: ["orders", "core", "ai"]
       meta:
         pre_aggregates:
           - name: orders_daily_avg_demo
@@ -112,6 +112,11 @@ models:
             drivers:
               - total_order_amount
               - customers.average_age
+          return_rate:
+            type: number
+            sql: "COUNT(CASE WHEN ${status} IN ('returned', 'return_pending') THEN ${order_id} END) / NULLIF(COUNT(${order_id}), 0)"
+            label: "Return Rate"
+            description: "Proportion of orders that are returned or pending return, expressed as a decimal (0–1)."
         default_time_dimension:
           field: order_date
           interval: MONTH
@@ -143,11 +148,12 @@ models:
             metrics:
               unique_order_count:
                 type: count_distinct
+                description: "Count of distinct orders placed."
                 spotlight:
                   categories: ["revenue_growth"]
               completed_order_count:
                 label: Completed order count
-                description: Total number of completed orders
+                description: "Count of orders that have reached completed status."
                 type: count_distinct
                 filters:
                   - is_completed: "true"
@@ -167,7 +173,7 @@ models:
             type: number
 
       - name: is_completed
-        description: Boolean indicating if status is completed
+        description: "Boolean flag indicating whether the order has reached 'completed' status."
         config:
           meta:
             metrics:
@@ -259,8 +265,10 @@ models:
             metrics:
               date_of_first_order:
                 type: min
+                description: "Date of the earliest order placed."
               date_of_most_recent_order:
                 type: max
+                description: "Date of the most recent order placed."
         meta:
           dimension:
             type: date
@@ -326,6 +334,7 @@ models:
             metrics:
               average_order_size:
                 type: average
+                description: "Average order amount (USD) across all orders."
                 format: usd
                 round: 2
                 spotlight:
@@ -335,6 +344,7 @@ models:
                   - customers.unique_customer_count # cross-table driver example
               total_order_amount:
                 type: sum
+                description: "Sum of the order amount (USD) across all orders."
                 format: usd
                 round: 2
                 default_time_dimension:
@@ -372,6 +382,7 @@ models:
                 round: 2
               total_completed_order_amount:
                 type: sum
+                description: "Sum of the order amount (USD) for orders with status = completed."
                 format: usd
                 round: 2
                 filters:
@@ -500,7 +511,7 @@ models:
               phone: "#2ca02c"
 
       - name: shipping_method
-        description: Shipping method selected for the order
+        description: "The shipping carrier or method used to fulfil the order (e.g. express, standard, priority)."
         config:
           meta:
             metrics:
@@ -601,12 +612,13 @@ models:
             type: number
 
       - name: shipping_cost
-        description: Cost of shipping for the order
+        description: "Cost (USD) charged for shipping this order."
         config:
           meta:
             metrics:
               total_shipping_revenue:
                 type: sum
+                description: "Sum of shipping costs (USD) across all orders."
                 format: usd
                 label: Total Shipping Revenue
               avg_shipping_cost:
@@ -614,6 +626,11 @@ models:
                 format: usd
                 round: 2
                 label: Average Shipping Cost
+              average_shipping_cost:
+                type: average
+                sql: ${shipping_cost}
+                label: "Average Shipping Cost"
+                description: "Average shipping cost (USD) per order."
               shipping_cost_vs_order_value:
                 type: number
                 sql: AVG(shipping_cost / NULLIF(amount, 0))
@@ -696,3 +713,11 @@ models:
           dimension:
             type: string
             hidden: true
+
+      - name: is_returned
+        description: "True if the order has been returned or has a return pending."
+        meta:
+          dimension:
+            type: boolean
+            sql: "${status} IN ('returned', 'return_pending')"
+            label: "Is Returned"
