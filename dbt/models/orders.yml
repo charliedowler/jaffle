@@ -284,6 +284,7 @@ models:
         meta:
           dimension:
             type: string
+            hidden: true
       - name: amount
         description: Total amount (USD) of the order
         tests:
