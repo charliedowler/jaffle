@@ -260,6 +260,13 @@ models:
             tags: ["ai"]
             dimension:
               hidden: true
+            metrics:
+              customer_lifetime_value:
+                type: average
+                label: Customer Lifetime Value
+                description: Average customer lifetime value
+                format: usd
+                tags: ["finance"]
         meta:
           dimension:
             type: number
