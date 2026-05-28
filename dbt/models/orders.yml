@@ -456,7 +456,7 @@ models:
           dimension:
             type: number
       - name: coupon_amount
-        description: Amount of the order (AUD) paid for by coupon
+        description: Order amount paid using a coupon
         tests:
           - not_null
         config:
