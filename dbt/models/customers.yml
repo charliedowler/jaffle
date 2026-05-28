@@ -113,6 +113,7 @@ models:
           meta:
             dimension:
               type: string
+              hidden: true
               urls:
                 - label: "URL from value"
                   url: "https://example.com/company/${value.formatted | url_encode }"
