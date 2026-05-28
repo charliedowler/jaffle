@@ -99,6 +99,18 @@ models:
                   ### ⚠️ ${ value.formatted }
                   **Low** Average CLV - _Needs attention!_
                   {% endif %}{% endraw %}
+              total_customers:
+                type: count
+                label: "Total Customers"
+                description: "The total number of customers."
+              customers_with_orders:
+                type: count
+                label: "Customers with Orders"
+                description: "The number of customers who have placed at least one order."
+                filters:
+                  - field: number_of_orders
+                    operator: greaterThan
+                    value: 0
         meta:
           dimension:
             type: number
@@ -250,6 +262,15 @@ models:
             tags: ["ai"]
             dimension:
               hidden: true
+            metrics:
+              total_orders:
+                type: sum
+                label: "Total Orders"
+                description: "The total number of orders placed across all customers."
+              average_orders_per_customer:
+                type: average
+                label: "Average Orders per Customer"
+                description: "The average number of orders placed per customer."
         meta:
           dimension:
             type: number
@@ -260,6 +281,15 @@ models:
             tags: ["ai"]
             dimension:
               hidden: true
+            metrics:
+              total_lifetime_revenue:
+                type: sum
+                label: "Total Lifetime Revenue"
+                description: "The total revenue generated across all customers over their lifetime."
+              average_lifetime_revenue:
+                type: average
+                label: "Average Lifetime Revenue"
+                description: "The average revenue generated per customer over their lifetime."
         meta:
           dimension:
             type: number
