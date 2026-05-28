@@ -690,6 +690,15 @@ models:
               west_coast: "#ff7f0e"
               central: "#2ca02c"
 
+      - name: tax_paid
+        config:
+          meta:
+            dimension:
+              hidden: true
+        meta:
+          dimension:
+            type: number
+
       - name: order_notes
         description: Additional notes and context about the order
         meta:
