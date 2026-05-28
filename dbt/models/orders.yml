@@ -250,7 +250,7 @@ models:
               segment_by: false
         type: string
       - name: order_date
-        description: Date (UTC) that the order was placed
+        description: Date the order was placed (UTC)
         config:
           meta:
             dimension:
@@ -441,6 +441,11 @@ models:
                 sql: ${amount}
                 filters:
                   - date_dim_param_test: "param is greater"
+              total_revenue:
+                type: sum
+                label: Total Revenue
+                format: usd
+                round: 2
         meta:
           dimension:
             type: number
@@ -488,6 +493,13 @@ models:
         meta:
           dimension:
             type: number
+
+      - name: payment_method
+        description: Payment method used for the order
+        meta:
+          dimension:
+            type: string
+            hidden: true
 
       - name: order_source
         description: Channel through which the order was placed
