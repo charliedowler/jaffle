@@ -47,6 +47,7 @@ models:
         config:
           meta:
             dimension:
+              hidden: true
               richText: |
                 **Customer ID:** `${ value.raw }`
                 
