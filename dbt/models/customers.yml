@@ -130,6 +130,7 @@ models:
         config:
           meta:
             dimension:
+              hidden: true
               ai_hint:
                 - Last name of the customer
                 - Contains PII data
