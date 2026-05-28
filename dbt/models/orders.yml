@@ -691,6 +691,7 @@ models:
               central: "#2ca02c"
 
       - name: tax_paid
+        description: "tax paid by customers"
         config:
           meta:
             dimension:
