@@ -184,6 +184,7 @@ models:
           meta:
             dimension:
               type: timestamp
+              hidden: true
             additional_dimensions:
               days_since_customer_created:
                 sql: EXTRACT(DAY FROM current_timestamp - ${created})
