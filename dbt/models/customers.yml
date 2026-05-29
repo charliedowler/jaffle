@@ -263,3 +263,5 @@ models:
         meta:
           dimension:
             type: number
+      - name: shipping_address
+        description: Customer's preferred shipping address
