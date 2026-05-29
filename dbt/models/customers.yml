@@ -243,6 +243,8 @@ models:
         meta:
           dimension:
             type: number
+      - name: lifetime_order_count
+        description: "Number of orders placed by this customer"
       - name: number_of_orders
         description: ""
         config:
