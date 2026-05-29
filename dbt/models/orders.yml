@@ -690,6 +690,9 @@ models:
               west_coast: "#ff7f0e"
               central: "#2ca02c"
 
+      - name: order_total
+        description: Total amount paid for the order including tax and shipping
+
       - name: order_notes
         description: Additional notes and context about the order
         meta:
