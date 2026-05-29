@@ -636,6 +636,14 @@ models:
             type: number
             format: usd
 
+      - name: tax_paid
+        description: Amount of tax paid on the order
+        meta:
+          dimension:
+            type: number
+            format: usd
+            hidden: true
+
       - name: tax_rate
         description: Tax rate applied to the order
         config:
