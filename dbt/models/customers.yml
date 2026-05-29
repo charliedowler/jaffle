@@ -253,6 +253,11 @@ models:
         meta:
           dimension:
             type: number
+      - name: is_repeat_customer
+        description: True when the customer has placed more than one order
+        meta:
+          dimension:
+            type: boolean
       - name: customer_lifetime_value
         description: ""
         config:

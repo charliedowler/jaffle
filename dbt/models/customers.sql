@@ -69,6 +69,7 @@ final as (
         customer_orders.first_order,
         customer_orders.most_recent_order,
         customer_orders.number_of_orders,
+        customer_orders.number_of_orders > 1 as is_repeat_customer,
         customer_payments.total_amount as customer_lifetime_value,
         {{ date_diff_days('customer_orders.first_order', 'customers.created') }} AS days_between_created_and_first_order,
         {{ timestamp_diff_days('customer_orders.most_recent_order', 'customer_orders_latest.latest_order') }} AS days_since_last_order
