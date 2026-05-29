@@ -696,3 +696,7 @@ models:
           dimension:
             type: string
             hidden: true
+
+      - name: tax_paid
+        meta:
+          hidden: true
