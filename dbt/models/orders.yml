@@ -265,7 +265,7 @@ models:
           dimension:
             type: date
       - name: status
-        description: '{{ doc("orders_status") }}'
+        description: 'Status of the order (placed, shipped, completed, or returned)'
         config:
           meta:
             dimension:
