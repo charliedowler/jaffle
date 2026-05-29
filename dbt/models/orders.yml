@@ -656,6 +656,14 @@ models:
             type: number
             format: percent
 
+      - name: tax_paid
+        description: Total tax amount paid for the order
+        meta:
+          dimension:
+            type: number
+            format: usd
+            hidden: true
+
       - name: currency
         description: Currency used for the order
         meta:

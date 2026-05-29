@@ -49,6 +49,7 @@ final as (
         orders.estimated_delivery_days,
         orders.shipping_cost,
         orders.tax_rate,
+        orders.tax_rate * order_payments.total_amount as tax_paid,
         orders.currency,
         orders.fulfillment_center,
         orders.order_notes,
