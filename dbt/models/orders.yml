@@ -636,6 +636,9 @@ models:
             type: number
             format: usd
 
+      - name: tax_paid
+        description: Total tax paid on the order
+
       - name: tax_rate
         description: Tax rate applied to the order
         config:
