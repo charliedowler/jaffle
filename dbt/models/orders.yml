@@ -601,7 +601,7 @@ models:
             type: number
 
       - name: shipping_cost
-        description: Cost of shipping for the order
+        description: Cost of shipping the order
         config:
           meta:
             metrics:
