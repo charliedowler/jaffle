@@ -195,7 +195,7 @@ models:
           dimension:
             type: boolean
       - name: customer_id
-        description: Foreign key to the customers table
+        description: Unique identifier for the customer
         tests:
           - not_null
           - relationships:
