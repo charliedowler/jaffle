@@ -41,7 +41,7 @@ final as (
         orders.customer_id,
         orders.order_date,
         orders.status,
-        case when status = 'completed' then TRUE else FALSE end AS is_completed,
+        {{ cast_boolean("(case when orders.status = 'completed' then 1 else 0 end)") }} AS is_completed,
         orders.order_source,
         orders.shipping_method,
         orders.promo_code,
