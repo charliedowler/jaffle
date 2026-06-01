@@ -202,7 +202,7 @@ models:
             tags: ["ai"]
             type: timestamp
       - name: first_order
-        description: Date of the customers first order
+        description: Date of this customer's first order
         config:
           meta:
             dimension:
