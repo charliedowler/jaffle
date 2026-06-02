@@ -1,0 +1,79 @@
+name: Lightdash Preview Deploy
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+
+jobs:
+  start-preview:
+    if: github.event.action != 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Lightdash CLI
+        run: npm install -g @lightdash/cli@latest
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dbt-postgres
+        run: pip install dbt-postgres
+
+      - name: Write dbt profiles
+        env:
+          DBT_HOST: ${{ secrets.DBT_HOST }}
+          DBT_USER: ${{ secrets.DBT_USER }}
+          DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
+          DBT_DBNAME: ${{ secrets.DBT_DBNAME }}
+          DBT_SCHEMA: ${{ secrets.DBT_SCHEMA }}
+        run: |
+          mkdir -p /tmp/ld-preview-profiles
+          cat > /tmp/ld-preview-profiles/profiles.yml <<EOF
+          jaffle_shop:
+            outputs:
+              default:
+                type: postgres
+                threads: 4
+                host: ${DBT_HOST}
+                port: 5432
+                user: ${DBT_USER}
+                pass: ${DBT_PASSWORD}
+                dbname: ${DBT_DBNAME}
+                schema: ${DBT_SCHEMA}
+            target: default
+          EOF
+
+      - name: Start Lightdash preview
+        env:
+          LIGHTDASH_API_KEY: ${{ secrets.LIGHTDASH_API_KEY }}
+          LIGHTDASH_URL: ${{ secrets.LIGHTDASH_URL }}
+        run: |
+          lightdash start-preview \
+            --name "PR${{ github.event.pull_request.number }}" \
+            --project-dir dbt \
+            --profiles-dir /tmp/ld-preview-profiles
+
+  stop-preview:
+    if: github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Lightdash CLI
+        run: npm install -g @lightdash/cli@latest
+
+      - name: Stop Lightdash preview
+        env:
+          LIGHTDASH_API_KEY: ${{ secrets.LIGHTDASH_API_KEY }}
+          LIGHTDASH_URL: ${{ secrets.LIGHTDASH_URL }}
+        run: lightdash stop-preview --name "PR${{ github.event.pull_request.number }}"
