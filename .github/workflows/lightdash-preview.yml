@@ -1,0 +1,74 @@
+name: Lightdash Preview
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    paths:
+      - 'dbt/**'
+
+jobs:
+  deploy-preview:
+    name: Deploy Lightdash preview
+    if: github.event.action != 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dbt-postgres
+        run: pip install dbt-postgres
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Lightdash CLI
+        run: npm install -g @lightdash/cli
+
+      - name: Deploy preview to Lightdash
+        # dbt compile does not connect to the database, so placeholder
+        # Postgres credentials are sufficient for generating the manifest.
+        run: |
+          lightdash deploy --preview \
+            --name "PR #${{ github.event.pull_request.number }}" \
+            --project-dir dbt \
+            --profiles-dir profiles
+        env:
+          LIGHTDASH_API_KEY: ${{ secrets.LIGHTDASH_API_KEY }}
+          LIGHTDASH_URL: ${{ secrets.LIGHTDASH_URL }}
+          LIGHTDASH_PROJECT: ${{ secrets.LIGHTDASH_PROJECT }}
+          PGHOST: localhost
+          PGPORT: "5432"
+          PGUSER: placeholder
+          PGPASSWORD: placeholder
+          PGDATABASE: placeholder
+
+  stop-preview:
+    name: Stop Lightdash preview
+    if: github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Lightdash CLI
+        run: npm install -g @lightdash/cli
+
+      - name: Stop Lightdash preview
+        continue-on-error: true
+        run: |
+          lightdash stop-preview \
+            --name "PR #${{ github.event.pull_request.number }}"
+        env:
+          LIGHTDASH_API_KEY: ${{ secrets.LIGHTDASH_API_KEY }}
+          LIGHTDASH_URL: ${{ secrets.LIGHTDASH_URL }}
+          LIGHTDASH_PROJECT: ${{ secrets.LIGHTDASH_PROJECT }}
