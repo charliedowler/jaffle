@@ -1,0 +1,26 @@
+name: Lightdash Preview Cleanup
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  lightdash-preview-cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Lightdash CLI
+        run: npm install -g @lightdash/cli
+
+      - name: Delete Lightdash preview
+        env:
+          LIGHTDASH_API_KEY: ${{ secrets.LIGHTDASH_API_KEY }}
+          LIGHTDASH_URL: ${{ secrets.LIGHTDASH_URL }}
+        run: |
+          lightdash stop-preview \
+            --name "pr-${{ github.event.number }}"
