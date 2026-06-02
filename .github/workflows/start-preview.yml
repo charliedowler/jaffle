@@ -2,6 +2,7 @@ name: lightdash-start-preview
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+  workflow_dispatch:
 concurrency:
   group: lightdash-preview-${{ github.ref }}
   cancel-in-progress: true
