@@ -1,0 +1,20 @@
+name: lightdash-close-preview
+on:
+  pull_request:
+    types: [closed]
+jobs:
+  close-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - name: Install Lightdash CLI
+        run: npm install -g @lightdash/cli
+      - name: Delete preview project
+        run: lightdash stop-preview --name "${GITHUB_HEAD_REF}"
+        env:
+          LIGHTDASH_URL: ${{ secrets.LIGHTDASH_URL }}
+          LIGHTDASH_PROJECT: ${{ secrets.LIGHTDASH_PROJECT }}
+          LIGHTDASH_API_KEY: ${{ secrets.LIGHTDASH_API_KEY }}
