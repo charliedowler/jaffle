@@ -81,11 +81,13 @@ models:
               email_campaigns:
                 type: count_distinct
                 sql: ${campaigns.campaign_id}
+                description: "Count of distinct campaign channels classified as Email. Use this metric to measure the breadth of email channel usage across campaigns."
                 filters:
                   - channel: "email"
               social_campaigns:
                 type: count_distinct
                 sql: ${campaigns.campaign_id}
+                description: "Count of distinct campaign channels classified as Social. Use this metric to measure the breadth of social channel usage across campaigns."
                 filters:
                   - channel: "social"
               multi_channel_campaigns:
