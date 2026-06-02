@@ -1,0 +1,47 @@
+name: Lightdash Preview Deploy
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Lightdash CLI
+        run: npm install -g @lightdash/cli
+
+      - name: Create or update Lightdash preview
+        if: github.event.action != 'closed'
+        run: |
+          lightdash deploy --preview \
+            --name "pr-${{ github.event.pull_request.number }}" \
+            --project-dir dbt \
+            --profiles-dir .github/lightdash-profiles
+        env:
+          LIGHTDASH_API_KEY: ${{ secrets.LIGHTDASH_API_KEY }}
+          LIGHTDASH_URL: ${{ secrets.LIGHTDASH_URL }}
+          LIGHTDASH_PROJECT: ${{ secrets.LIGHTDASH_PROJECT }}
+          DBT_HOST: ${{ secrets.DBT_HOST }}
+          DBT_USER: ${{ secrets.DBT_USER }}
+          DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
+          DBT_DBNAME: ${{ secrets.DBT_DBNAME }}
+          DBT_SCHEMA: ${{ secrets.DBT_SCHEMA }}
+
+      - name: Delete Lightdash preview
+        if: github.event.action == 'closed'
+        run: |
+          lightdash stop-preview \
+            --name "pr-${{ github.event.pull_request.number }}"
+        env:
+          LIGHTDASH_API_KEY: ${{ secrets.LIGHTDASH_API_KEY }}
+          LIGHTDASH_URL: ${{ secrets.LIGHTDASH_URL }}
+          LIGHTDASH_PROJECT: ${{ secrets.LIGHTDASH_PROJECT }}
