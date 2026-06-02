@@ -285,7 +285,7 @@ models:
           dimension:
             type: string
       - name: amount
-        description: Total amount (USD) of the order
+        description: "Total amount paid for the order"
         tests:
           - not_null
         config:
