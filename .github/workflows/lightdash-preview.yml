@@ -1,0 +1,31 @@
+name: Lightdash Preview
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+
+jobs:
+  lightdash-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy Lightdash Preview
+        if: github.event.action != 'closed'
+        uses: lightdash/lightdash-preview-action@v1
+        with:
+          lightdash_url: ${{ secrets.LIGHTDASH_URL }}
+          lightdash_api_key: ${{ secrets.LIGHTDASH_API_KEY }}
+          project_uuid: ${{ secrets.LIGHTDASH_PROJECT_UUID }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Destroy Lightdash Preview
+        if: github.event.action == 'closed'
+        uses: lightdash/lightdash-preview-action@v1
+        with:
+          lightdash_url: ${{ secrets.LIGHTDASH_URL }}
+          lightdash_api_key: ${{ secrets.LIGHTDASH_API_KEY }}
+          project_uuid: ${{ secrets.LIGHTDASH_PROJECT_UUID }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          action: destroy
