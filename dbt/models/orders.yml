@@ -250,7 +250,7 @@ models:
               segment_by: false
         type: string
       - name: order_date
-        description: Date (UTC) that the order was placed
+        description: Test writeback from the AI bubble
         config:
           meta:
             dimension:
