@@ -123,7 +123,7 @@ models:
               spotlight:
                 visibility: show
             unique_smb_accounts:
-              label: Unique SMB fanouts_accounts
+              label: Unique SMB Accounts
               type: count_distinct
               description:
                 The unique number of fanouts_accounts based on distinct Account IDs for
@@ -131,7 +131,7 @@ models:
               filters:
                 - segment: "SMB"
             unique_midmarket_accounts:
-              label: Unique Midmarket fanouts_accounts
+              label: Unique Midmarket Accounts
               type: count_distinct
               description:
                 The unique number of Midmarket fanouts_accounts based on distinct Account
