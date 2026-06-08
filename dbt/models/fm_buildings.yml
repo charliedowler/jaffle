@@ -15,7 +15,7 @@ models:
           metrics:
             total_count:
               type: count
-              description: Total number of properties
+              description: Total number of buildings
             unique_count:
               type: count_distinct
               description: Count of unique properties
