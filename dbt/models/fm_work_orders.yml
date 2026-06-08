@@ -26,10 +26,10 @@ models:
           dimension:
             type: number
           metrics:
-            total_count:
+            total_work_orders:
               type: count
               description: Total number of items
-            unique_count:
+            unique_work_orders:
               type: count_distinct
               description: Count of unique items
 

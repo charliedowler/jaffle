@@ -13,10 +13,10 @@ models:
           dimension:
             type: number
           metrics:
-            total_count:
+            total_technicians:
               type: count
               description: Total number of personnel
-            unique_count:
+            unique_technicians:
               type: count_distinct
               description: Count of unique personnel
 

@@ -13,10 +13,10 @@ models:
           dimension:
             type: number
           metrics:
-            total_count:
+            total_buildings:
               type: count
               description: Total number of properties
-            unique_count:
+            unique_buildings:
               type: count_distinct
               description: Count of unique properties
 

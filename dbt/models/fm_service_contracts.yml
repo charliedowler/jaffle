@@ -17,10 +17,10 @@ models:
           dimension:
             type: number
           metrics:
-            total_count:
+            total_contracts:
               type: count
               description: Total number of contracts
-            unique_count:
+            unique_contracts:
               type: count_distinct
               description: Count of unique contracts
 
