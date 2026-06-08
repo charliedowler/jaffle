@@ -18,7 +18,7 @@ models:
               description: Total number of personnel
             unique_count:
               type: count_distinct
-              description: Count of unique personnel
+              description: Count of unique technicians
 
       - name: full_name
         description: Personnel name
