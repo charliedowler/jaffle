@@ -15,7 +15,7 @@ models:
           metrics:
             total_count:
               type: count
-              description: Total number of personnel
+              description: Total number of technicians
             unique_count:
               type: count_distinct
               description: Count of unique personnel
