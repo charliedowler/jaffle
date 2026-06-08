@@ -164,7 +164,7 @@ models:
           metrics:
             avg_rating:
               type: average
-              description: Average rating score
+              description: Average customer satisfaction rating given to a completed work order
 
       - name: sla_met
         description: SLA compliance indicator

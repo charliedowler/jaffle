@@ -183,7 +183,7 @@ models:
           metrics:
             avg_rating:
               type: average
-              description: Average customer rating
+              description: Average customer rating given to a service contract
 
       - name: start_date
         description: Contract start date
