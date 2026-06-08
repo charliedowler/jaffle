@@ -17,10 +17,10 @@ models:
           dimension:
             type: number
           metrics:
-            total_count:
+            total_contracts:
               type: count
               description: Total number of contracts
-            unique_count:
+            unique_contracts:
               type: count_distinct
               description: Count of unique contracts
 
@@ -96,9 +96,9 @@ models:
           dimension:
             type: number
           metrics:
-            total_completed:
+            total_completed_work_orders:
               type: sum
-              description: Total completed
+              description: Total completed work orders
 
       - name: completion_rate
         description: Completion percentage

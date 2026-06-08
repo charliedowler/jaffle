@@ -26,12 +26,12 @@ models:
           dimension:
             type: number
           metrics:
-            total_count:
+            total_work_orders:
               type: count
-              description: Total number of items
-            unique_count:
+              description: Total number of work orders
+            unique_work_orders:
               type: count_distinct
-              description: Count of unique items
+              description: Count of unique work orders
 
       - name: building_id
         description: Building reference

@@ -13,12 +13,12 @@ models:
           dimension:
             type: number
           metrics:
-            total_count:
+            total_parts:
               type: count
-              description: Total number of items
-            unique_count:
+              description: Total number of parts
+            unique_parts:
               type: count_distinct
-              description: Count of unique items
+              description: Count of unique parts
 
       - name: part_name
         description: Item name

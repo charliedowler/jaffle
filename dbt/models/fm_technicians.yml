@@ -13,12 +13,12 @@ models:
           dimension:
             type: number
           metrics:
-            total_count:
+            total_technicians:
               type: count
-              description: Total number of personnel
-            unique_count:
+              description: Total number of technicians
+            unique_technicians:
               type: count_distinct
-              description: Count of unique personnel
+              description: Count of unique technicians
 
       - name: full_name
         description: Personnel name
@@ -80,9 +80,9 @@ models:
           dimension:
             type: number
           metrics:
-            total_completed:
+            total_completed_assignments:
               type: sum
-              description: Total completed
+              description: Total completed assignments
 
       - name: completion_rate
         description: Completion percentage
