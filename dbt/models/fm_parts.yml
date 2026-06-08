@@ -135,7 +135,7 @@ models:
           metrics:
             avg_rating:
               type: average
-              description: Average customer rating
+              description: Average supplier rating for the part
 
       - name: supplier_rating
         description: Supplier rating
