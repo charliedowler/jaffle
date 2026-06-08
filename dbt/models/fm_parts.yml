@@ -125,7 +125,8 @@ models:
           metrics:
             total_wo_count:
               type: sum
-              description: Total work orders
+              label: "Total Work Orders Using Part"
+              description: "Total number of work orders that used this part. Note: aggregates a pre-calculated column — use the fm_work_orders explore for row-level analysis."
 
       - name: customer_rating
         description: Customer rating

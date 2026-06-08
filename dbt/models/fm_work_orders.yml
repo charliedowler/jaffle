@@ -26,12 +26,12 @@ models:
           dimension:
             type: number
           metrics:
-            total_count:
+            total_work_orders:
               type: count
-              description: Total number of items
-            unique_count:
+              description: Total number of work orders
+            unique_work_orders:
               type: count_distinct
-              description: Count of unique items
+              description: Count of distinct work orders
 
       - name: building_id
         description: Building reference
@@ -87,15 +87,15 @@ models:
           dimension:
             type: number
           metrics:
-            total_cost_sum:
+            total_cost:
               type: sum
-              description: Sum of total cost
-            average_cost:
+              description: Total cost across all work orders
+            avg_cost:
               type: average
-              description: Average cost per item
+              description: Average cost per work order
             max_cost:
               type: max
-              description: Maximum cost value
+              description: Maximum work order cost
 
       - name: labor_cost
         description: Labor cost amount
@@ -103,12 +103,12 @@ models:
           dimension:
             type: number
           metrics:
-            total_labor:
+            total_labor_cost:
               type: sum
               description: Total labor cost
-            avg_labor:
+            avg_labor_cost:
               type: average
-              description: Average labor cost
+              description: Average labor cost per work order
 
       - name: materials_cost
         description: Materials cost amount
@@ -116,12 +116,12 @@ models:
           dimension:
             type: number
           metrics:
-            total_materials:
+            total_materials_cost:
               type: sum
               description: Total materials cost
-            avg_materials:
+            avg_materials_cost:
               type: average
-              description: Average materials cost
+              description: Average materials cost per work order
 
       - name: labor_hours
         description: Hours worked
@@ -129,12 +129,12 @@ models:
           dimension:
             type: number
           metrics:
-            total_hours:
+            total_labor_hours:
               type: sum
-              description: Total hours
-            average_hours:
+              description: Total labor hours
+            avg_labor_hours:
               type: average
-              description: Average hours per item
+              description: Average labor hours per work order
 
       - name: response_time_minutes
         description: Response time
@@ -144,7 +144,7 @@ models:
           metrics:
             avg_response_time:
               type: average
-              description: Average response time
+              description: Average response time in minutes
 
       - name: resolution_time_hours
         description: Time to complete
@@ -154,7 +154,7 @@ models:
           metrics:
             avg_resolution_time:
               type: average
-              description: Average resolution time
+              description: Average resolution time in hours
 
       - name: customer_rating
         description: Satisfaction rating
@@ -246,4 +246,4 @@ models:
           metrics:
             avg_duration:
               type: average
-              description: Average duration
+              description: Average total duration in hours

@@ -88,7 +88,7 @@ models:
           metrics:
             total_work_orders:
               type: sum
-              description: Total work orders
+              description: "Sum of year-to-date work order counts across contracts. Note: this aggregates a pre-calculated YTD column — use the fm_work_orders explore for row-level work order analysis."
 
       - name: completed_work_orders_ytd
         description: Completed work orders
@@ -98,7 +98,8 @@ models:
           metrics:
             total_completed:
               type: sum
-              description: Total completed
+              label: "Total Completed Work Orders"
+              description: "Sum of year-to-date completed work order counts across contracts. Note: this aggregates a pre-calculated YTD column — use the fm_work_orders explore for row-level analysis."
 
       - name: completion_rate
         description: Completion percentage

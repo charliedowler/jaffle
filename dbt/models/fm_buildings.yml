@@ -146,7 +146,7 @@ models:
           metrics:
             total_work_orders:
               type: sum
-              description: Total work orders
+              description: "Sum of year-to-date work order counts across buildings. Note: this aggregates a pre-calculated YTD column — use the fm_work_orders explore for row-level work order analysis."
 
       - name: average_work_order_cost
         description: Average cost per work order
@@ -156,7 +156,8 @@ models:
           metrics:
             avg_wo_cost:
               type: average
-              description: Average work order cost
+              label: "Avg Work Order Cost"
+              description: "Average of per-building average work order cost. Note: this aggregates a pre-calculated column — use the fm_work_orders explore for accurate cost analysis."
 
       - name: address_city
         description: City location

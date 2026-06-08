@@ -65,14 +65,14 @@ models:
               description: Average customer satisfaction
 
       - name: total_work_orders
-        description: Total assignments
+        description: Total work orders assigned to this technician (pre-aggregated)
         meta:
           dimension:
             type: number
           metrics:
             total_assignments:
               type: sum
-              description: Total work orders
+              description: "Total work orders assigned across all technicians. Note: aggregates a pre-calculated column — use the fm_work_orders explore for row-level analysis."
 
       - name: completed_work_orders
         description: Completed assignments
@@ -82,7 +82,8 @@ models:
           metrics:
             total_completed:
               type: sum
-              description: Total completed
+              label: "Total Completed Work Orders"
+              description: "Total completed work orders across all technicians. Note: aggregates a pre-calculated column — use the fm_work_orders explore for row-level analysis."
 
       - name: completion_rate
         description: Completion percentage
