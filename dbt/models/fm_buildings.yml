@@ -18,7 +18,7 @@ models:
               description: Total number of properties
             unique_count:
               type: count_distinct
-              description: Count of unique properties
+              description: Count of unique buildings
 
       - name: building_name
         description: Property name
