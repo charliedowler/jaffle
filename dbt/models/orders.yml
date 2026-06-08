@@ -326,6 +326,7 @@ models:
             metrics:
               average_order_size:
                 type: average
+                description: Average value of all orders in USD. Use this as the canonical average order value metric.
                 format: usd
                 round: 2
                 spotlight:
@@ -342,10 +343,6 @@ models:
                   interval: DAY
                 spotlight:
                   categories: ["revenue_growth"]
-              average_order_amount:
-                type: average
-                format: usd
-                round: 2
               amount_percent_of_previous:
                 type: percent_of_previous
                 sql: ${total_order_amount}
@@ -372,6 +369,7 @@ models:
                 round: 2
               total_completed_order_amount:
                 type: sum
+                description: Total order value (USD) for completed orders only.
                 format: usd
                 round: 2
                 filters:
@@ -382,6 +380,7 @@ models:
                   - total_order_amount
               total_completed_order_amount_eur:
                 type: sum
+                description: Total order value for completed orders only, formatted in EUR. This is the same measure as total_completed_order_amount but displayed in EUR.
                 format: eur
                 filters:
                   - is_completed: "true"
