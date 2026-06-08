@@ -101,10 +101,10 @@ models:
           dimension:
             type: number
           metrics:
-            avg_ftf_rate:
+            first_time_fix_rate:
               type: average
               format: percent
-              description: Average first time fix rate
+              description: First time fix rate
 
       - name: average_resolution_time_hours
         description: Average resolution time
@@ -112,9 +112,9 @@ models:
           dimension:
             type: number
           metrics:
-            avg_resolution:
+            avg_resolution_time:
               type: average
-              description: Average time to resolve
+              description: Average resolution time
 
       - name: response_time_avg_minutes
         description: Average response time
@@ -122,7 +122,7 @@ models:
           dimension:
             type: number
           metrics:
-            avg_response:
+            avg_response_time:
               type: average
               description: Average response time
 
