@@ -15,7 +15,7 @@ models:
           metrics:
             total_count:
               type: count
-              description: Total number of items
+              description: Total number of parts
             unique_count:
               type: count_distinct
               description: Count of unique items
