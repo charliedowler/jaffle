@@ -13,7 +13,7 @@ models:
           dimension:
             type: number
           metrics:
-            total_count:
+            total_parts:
               type: count
               description: Total number of items
             unique_count:
