@@ -15,6 +15,7 @@ models:
           metrics:
             total_count:
               type: count
+              label: "Count (metrics test)"
               description: Total number of items
             unique_count:
               type: count_distinct
