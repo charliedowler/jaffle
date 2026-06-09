@@ -91,12 +91,7 @@ health_scores as (
         coalesce(pv.emergency_visits, 0) as emergency_visits,
         coalesce(pv.chronic_management_visits, 0) as chronic_management_visits,
         pv.last_visit_date,
-        -- Athena/Trino: date subtraction returns INTERVAL not integer, use DATE_DIFF instead
-        {% if target.type == 'trino' or target.type == 'athena' %}
-        DATE_DIFF('day', pv.last_visit_date, current_date) as days_since_last_visit,
-        {% else %}
-        current_date - pv.last_visit_date as days_since_last_visit,
-        {% endif %}
+        {{ date_diff_days('current_date', 'pv.last_visit_date') }} as days_since_last_visit,
 
         -- Condition metrics
         coalesce(pc.total_conditions, 0) as total_conditions,
@@ -157,11 +152,7 @@ health_scores as (
             end -
             -- Penalty for missed follow-ups (days since last visit if follow-up required)
             case
-                {% if target.type == 'trino' or target.type == 'athena' %}
-                when pv.visits_requiring_followup > 0 and DATE_DIFF('day', pv.last_visit_date, current_date) > 60
-                {% else %}
-                when pv.visits_requiring_followup > 0 and (current_date - pv.last_visit_date) > 60
-                {% endif %}
+                when pv.visits_requiring_followup > 0 and {{ date_diff_days('current_date', 'pv.last_visit_date') }} > 60
                 then 20
                 else 0
             end
