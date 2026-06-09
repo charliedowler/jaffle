@@ -18,6 +18,7 @@ models:
               description: Total number of items
             unique_count:
               type: count_distinct
+              label: "Count of unique items (FM)"
               description: Count of unique items
 
       - name: part_name
