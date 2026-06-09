@@ -66,7 +66,8 @@ models:
                   owner: demo2@lightdash.com
                   categories: ['revenue_growth']
                 type: sum
-                description: Sum of all payments
+                label: Total Payment Revenue
+                description: Sum of all payment amounts
                 # E2E tests rely on these values
                 show_underlying_values:
                   # Metrics

@@ -125,6 +125,8 @@ models:
             metrics:
               total_revenue:
                 type: sum
+                label: Total Attributed Marketing Revenue (USD)
+                description: Sum of revenue attributed to marketing touchpoints, in USD
                 format: usd
               avg_revenue_per_touchpoint:
                 type: average

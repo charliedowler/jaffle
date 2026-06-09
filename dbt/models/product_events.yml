@@ -200,7 +200,8 @@ models:
           metrics:
             total_revenue:
               type: sum
-              description: "Total revenue from completed orders"
+              label: Total Product Revenue (USD)
+              description: Total revenue from completed orders, in USD
               format: "usd"
             avg_order_value:
               type: average

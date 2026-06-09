@@ -93,7 +93,8 @@ models:
           metrics:
             total_revenue:
               type: sum
-              description: Total revenue
+              label: Total Building Revenue
+              description: Sum of monthly recurring revenue across buildings
             avg_revenue:
               type: average
               description: Average revenue per property

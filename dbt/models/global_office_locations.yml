@@ -72,8 +72,8 @@ models:
             metrics:
               total_revenue:
                 type: sum
-                label: Total Revenue
-                description: Sum of annual revenue across offices
+                label: Total Office Annual Revenue (USD)
+                description: Sum of annual revenue across all office locations, in USD
 
       - name: employee_count
         description: Number of employees at this office
