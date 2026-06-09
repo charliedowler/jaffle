@@ -15,6 +15,7 @@ models:
           metrics:
             total_count:
               type: count
+              label: "Total Count (FM)"
               description: Total number of items
             unique_count:
               type: count_distinct
