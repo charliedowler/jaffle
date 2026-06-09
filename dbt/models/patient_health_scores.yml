@@ -62,6 +62,7 @@ models:
             format: percent
             round: 2
             label: "Emergency Visit Rate"
+            description: "Percentage of total visits that were emergency department visits, calculated as emergency visits divided by total visits."
 
           total_chronic_visits:
             type: sum

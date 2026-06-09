@@ -25,14 +25,17 @@ models:
             sql: SUM(is_conversion)::NUMERIC / NULLIF(COUNT(*), 0)
             format: percent
             round: 2
+            description: "Percentage of touchpoints that resulted in a purchase, calculated as conversions divided by total touchpoints."
           total_attributed_revenue:
             type: sum
             sql: ${marketing_touchpoints.revenue_attributed}
             format: usd
+            description: "Total revenue in USD attributed to marketing touchpoints."
           avg_session_duration_minutes:
             type: average
             sql: ${marketing_touchpoints.session_duration_minutes}
             round: 1
+            description: "Average session duration in minutes across all touchpoints."
         default_time_dimension:
           field: touchpoint_date
           interval: DAY

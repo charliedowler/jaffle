@@ -18,15 +18,18 @@ models:
             type: average
             sql: ${campaigns.budget}
             format: usd
+            description: "Average budget allocated per campaign in USD."
           total_campaign_spend:
             type: sum
             sql: ${campaigns.budget}
             format: usd
+            description: "Total budget spend across all campaigns in USD."
           campaign_efficiency_ratio:
             type: number
-            sql: ${campaigns.total_campaign_spend} / NULLIF(${campaigns.total_campaign_spend}, 0)
+            sql: ${campaigns.total_campaign_spend} / NULLIF(${campaigns.total_budget}, 0)
             format: number
             round: 2
+            description: "Ratio of total campaign spend to total budget. Values above 1.0 indicate overspend; below 1.0 indicates underspend."
         default_time_dimension:
           field: start_date
           interval: MONTH

@@ -87,6 +87,7 @@ models:
             type: number
             sql: ${total_completed_order_amount}/${total_order_amount}
             format: percent
+            description: "Ratio of completed order amount to total order amount. Indicates what proportion of order value has been fulfilled."
             ai_hint: |
               Ratio of completed orders to total orders
               Completion percentage of orders.
@@ -394,26 +395,31 @@ models:
                 label: Basic SQL Metric
                 groups: ["pre-aggregations"]
                 sql: "1"
+                hidden: true
               table_ref_metric:
                 type: sum
                 label: Table Ref Metric
                 groups: ["pre-aggregations"]
                 sql: ${TABLE}.amount
+                hidden: true
               semantic_ref_metric:
                 type: sum
                 label: Semantic Ref Metric
                 groups: ["pre-aggregations"]
                 sql: ${amount}
+                hidden: true
               mixed_expression_metric:
                 type: sum
                 label: Mixed Expression Metric
                 groups: ["pre-aggregations"]
                 sql: ${TABLE}.amount + ${shipping_cost}
+                hidden: true
               average_expression_metric:
                 type: average
                 label: Average Expression Metric
                 groups: ["pre-aggregations"]
                 sql: ${TABLE}.amount + ${shipping_cost}
+                hidden: true
               parameterized_metric_test:
                 type: sum
                 label: Parameterized Metric Test
@@ -424,6 +430,7 @@ models:
                       THEN ${TABLE}.amount
                     ELSE 0
                   END
+                hidden: true
               user_attribute_email_metric_test:
                 type: sum
                 label: User Attribute Email Metric Test
@@ -434,6 +441,7 @@ models:
                       THEN ${TABLE}.amount
                     ELSE 0
                   END
+                hidden: true
               param_filter_metric_test:
                 type: sum
                 label: Param Filter Metric Test
@@ -441,6 +449,7 @@ models:
                 sql: ${amount}
                 filters:
                   - date_dim_param_test: "param is greater"
+                hidden: true
         meta:
           dimension:
             type: number
