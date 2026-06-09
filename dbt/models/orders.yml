@@ -141,6 +141,9 @@ models:
         config:
           meta:
             metrics:
+              total_orders:
+                label: Total orders
+                type: count
               unique_order_count:
                 type: count_distinct
                 spotlight:
