@@ -18,6 +18,7 @@ models:
               description: Total number of personnel
             unique_count:
               type: count_distinct
+              label: "Unique Count (FM)"
               description: Count of unique personnel
 
       - name: full_name

@@ -18,6 +18,7 @@ models:
               description: Total number of properties
             unique_count:
               type: count_distinct
+              label: "Unique Count (FM)"
               description: Count of unique properties
 
       - name: building_name
