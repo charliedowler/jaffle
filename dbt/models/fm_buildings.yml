@@ -16,6 +16,7 @@ models:
             total_count:
               type: count
               description: Total number of properties
+              label: "Total Count (FM)"
             unique_count:
               type: count_distinct
               description: Count of unique properties
