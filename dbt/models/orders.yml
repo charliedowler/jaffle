@@ -523,7 +523,7 @@ models:
               overnight: "#2ca02c"
 
       - name: promo_code
-        description: Promotional code applied to the order
+        description: The promotional code applied at checkout. Null when no promo was used.
         config:
           meta:
             metrics:
