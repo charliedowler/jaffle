@@ -40,7 +40,7 @@ models:
       facts based on a customer's orders
     columns:
       - name: customer_id
-        description: This is a unique identifier for a customer
+        description: "Unique identifier for each customer"
         tests:
           - unique
           - not_null
