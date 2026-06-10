@@ -337,6 +337,12 @@ models:
                 type: sum
                 format: usd
                 round: 2
+                description: Total revenue from completed orders only. Excludes returned and pending orders.
+                filters:
+                  - status: "completed"
+                ai_hint: |
+                  This metric only includes orders with status = 'completed'.
+                  Returned and pending orders are excluded from this revenue figure.
                 default_time_dimension:
                   field: order_date
                   interval: DAY
