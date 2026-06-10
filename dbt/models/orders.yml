@@ -337,6 +337,9 @@ models:
                 type: sum
                 format: usd
                 round: 2
+                description: Total revenue from completed orders only (excludes returned and pending orders)
+                filters:
+                  - status: "completed"
                 default_time_dimension:
                   field: order_date
                   interval: DAY
