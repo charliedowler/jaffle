@@ -1,0 +1,11 @@
+version: 2
+models:
+  - name: user_attribution_test
+    description: SQL model for User attribution test
+    meta:
+      label: User attribution test
+    columns:
+      - name: test_col
+        meta:
+          dimension:
+            type: number
