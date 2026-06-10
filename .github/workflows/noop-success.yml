@@ -1,0 +1,16 @@
+name: No-op (success)
+
+# A no-op workflow that always succeeds. Exists only to produce a green CI
+# check on commits and pull requests for testing CI status visualisation.
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  noop:
+    name: noop-success
+    runs-on: ubuntu-latest
+    steps:
+      - name: Do nothing (pass)
+        run: echo "No-op success" && exit 0

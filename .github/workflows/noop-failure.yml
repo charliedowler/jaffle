@@ -1,0 +1,16 @@
+name: No-op (failure)
+
+# A no-op workflow that always fails. Exists only to produce a red CI check on
+# commits and pull requests for testing CI status visualisation.
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  noop:
+    name: noop-failure
+    runs-on: ubuntu-latest
+    steps:
+      - name: Do nothing (fail)
+        run: echo "No-op failure" && exit 1

@@ -1,0 +1,20 @@
+name: No-op (pending)
+
+# A no-op workflow that idles for several minutes before passing, so it stays
+# in the "in progress" (yellow) state long enough to observe CI status
+# visualisation across all three states (success / failure / running).
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  noop:
+    name: noop-pending
+    runs-on: ubuntu-latest
+    steps:
+      - name: Idle then pass
+        run: |
+          echo "No-op pending: idling to stay in progress"
+          sleep 480
+          echo "done"
