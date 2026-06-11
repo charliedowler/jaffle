@@ -1,256 +1,257 @@
 version: 2
 models:
   - name: generated_b
+    description: "Synthetic generated dataset used as a join target in multi-join performance tests."
     meta:
       hidden: true
     columns:
       - name: name
-        description: ""
+        description: "Name of the generated person or entity."
         meta:
           dimension:
             type: string
       - name: phone
-        description: ""
+        description: "Phone number."
         meta:
           dimension:
             type: string
       - name: email
-        description: ""
+        description: "Email address."
         meta:
           dimension:
             type: string
       - name: address
-        description: ""
+        description: "Street address."
         meta:
           dimension:
             type: string
       - name: postalzip
-        description: ""
+        description: "Postal or ZIP code."
         meta:
           dimension:
             type: string
       - name: region
-        description: ""
+        description: "Geographic region."
         meta:
           dimension:
             type: string
       - name: country
-        description: ""
+        description: "Country name."
         meta:
           dimension:
             type: string
       - name: alphanumeric
-        description: ""
+        description: "Alphanumeric code."
         meta:
           dimension:
             type: string
       - name: currency
-        description: ""
+        description: "Monetary value."
         meta:
           dimension:
             type: number
       - name: numberrange
-        description: ""
+        description: "Numeric value within a defined range."
         meta:
           dimension:
             type: number
       - name: text
-        description: ""
+        description: "Free-form text field."
         meta:
           dimension:
             type: string
       - name: name1
-        description: ""
+        description: "Secondary name field."
         meta:
           dimension:
             type: string
       - name: email1
-        description: ""
+        description: "Secondary email address."
         meta:
           dimension:
             type: string
       - name: phone1
-        description: ""
+        description: "Secondary phone number."
         meta:
           dimension:
             type: string
       - name: address1
-        description: ""
+        description: "Secondary street address."
         meta:
           dimension:
             type: string
       - name: text1
-        description: ""
+        description: "Secondary free-form text field."
         meta:
           dimension:
             type: string
       - name: url
-        description: ""
+        description: "Web URL reference."
         meta:
           dimension:
             type: string
       - name: numberrange1
-        description: ""
+        description: "Numeric value within a defined range."
         meta:
           dimension:
             type: number
       - name: numberrange2
-        description: ""
+        description: "Numeric value within a defined range."
         meta:
           dimension:
             type: number
       - name: numberrange3
-        description: ""
+        description: "Numeric value within a defined range."
         meta:
           dimension:
             type: number
       - name: numberrange4
-        description: ""
+        description: "Numeric value within a defined range."
         meta:
           dimension:
             type: number
       - name: numberrange5
-        description: ""
+        description: "Numeric value within a defined range."
         meta:
           dimension:
             type: number
       - name: numberrange6
-        description: ""
+        description: "Numeric value within a defined range."
         meta:
           dimension:
             type: number
       - name: numberrange7
-        description: ""
+        description: "Numeric value within a defined range."
         meta:
           dimension:
             type: number
       - name: primary_key
-        description: ""
+        description: "Primary key identifier for this record."
         meta:
           dimension:
             type: number
       - name: foreign_key
-        description: ""
+        description: "Foreign key reference to another record."
         meta:
           dimension:
             type: number
       - name: track1
-        description: ""
+        description: "Tracking identifier."
         meta:
           dimension:
             type: string
       - name: autoincrement2
-        description: ""
+        description: "Auto-incrementing sequence identifier."
         meta:
           dimension:
             type: number
       - name: numberrange8
-        description: ""
+        description: "Numeric value within a defined range."
         meta:
           dimension:
             type: number
       - name: numberrange9
-        description: ""
+        description: "Numeric value within a defined range."
         meta:
           dimension:
             type: number
       - name: numberrange10
-        description: ""
+        description: "Numeric value within a defined range."
         meta:
           dimension:
             type: number
       - name: numberrange11
-        description: ""
+        description: "Numeric value within a defined range."
         meta:
           dimension:
             type: number
       - name: text2
-        description: ""
+        description: "Additional free-form text field."
         meta:
           dimension:
             type: string
       - name: date
-        description: ""
+        description: "Date field."
         meta:
           dimension:
             type: string
       - name: date1
-        description: ""
+        description: "Date field."
         meta:
           dimension:
             type: string
       - name: time
-        description: ""
+        description: "Time field."
         meta:
           dimension:
             type: string
       - name: date2
-        description: ""
+        description: "Date field."
         meta:
           dimension:
             type: string
       - name: date3
-        description: ""
+        description: "Date field."
         meta:
           dimension:
             type: string
       - name: date4
-        description: ""
+        description: "Date field."
         meta:
           dimension:
             type: string
       - name: date5
-        description: ""
+        description: "Date field."
         meta:
           dimension:
             type: string
       - name: date6
-        description: ""
+        description: "Date field."
         meta:
           dimension:
             type: string
       - name: date7
-        description: ""
+        description: "Date field."
         meta:
           dimension:
             type: string
       - name: date8
-        description: ""
+        description: "Date field."
         meta:
           dimension:
             type: string
       - name: numberrange12
-        description: ""
+        description: "Numeric value within a defined range."
         meta:
           dimension:
             type: number
       - name: numberrange13
-        description: ""
+        description: "Numeric value within a defined range."
         meta:
           dimension:
             type: number
       - name: date9
-        description: ""
+        description: "Date field."
         meta:
           dimension:
             type: string
       - name: date10
-        description: ""
+        description: "Date field."
         meta:
           dimension:
             type: string
       - name: numberrange14
-        description: ""
+        description: "Numeric value within a defined range."
         meta:
           dimension:
             type: number
       - name: numberrange15
-        description: ""
+        description: "Numeric value within a defined range."
         meta:
           dimension:
             type: number
       - name: date11
-        description: ""
+        description: "Date field."
         meta:
           dimension:
             type: string

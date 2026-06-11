@@ -1,21 +1,22 @@
 version: 2
 models:
   - name: geo
+    description: "Geographic reference data with coordinates, country codes, and sales metrics for map visualizations."
     columns:
       - name: id
-        description: ""
+        description: "Unique row identifier."
         config:
           meta:
             dimension:
               type: number
       - name: continent
-        description: ""
+        description: "Continent name."
         config:
           meta:
             dimension:
               type: string
       - name: country_name
-        description: ""
+        description: "Full country name."
         config:
           meta:
             dimension:
@@ -33,37 +34,37 @@ models:
             dimension:
               type: string
       - name: state_province_name
-        description: ""
+        description: "State or province name."
         config:
           meta:
             dimension:
               type: string
       - name: us_state_code
-        description: ""
+        description: "US state abbreviation code."
         config:
           meta:
             dimension:
               type: string
       - name: postal_code
-        description: ""
+        description: "Postal or ZIP code."
         config:
           meta:
             dimension:
               type: string
       - name: latitude
-        description: ""
+        description: "Latitude coordinate."
         config:
           meta:
             dimension:
               type: number
       - name: longitude
-        description: ""
+        description: "Longitude coordinate."
         config:
           meta:
             dimension:
               type: number
       - name: sales_volume_usd
-        description: ""
+        description: "Sales volume in USD."
         config:
           meta:
             dimension:
@@ -72,7 +73,7 @@ models:
               sales_volume_sum:
                 type: sum
       - name: customer_count
-        description: ""
+        description: "Number of customers."
         config:
           meta:
             dimension:
@@ -81,20 +82,20 @@ models:
               customer_count_sum:
                 type: sum
       - name: avg_transaction_value_usd
-        description: ""
+        description: "Average transaction value in USD."
         config:
           meta:
             dimension:
               type: number
               hidden: true
       - name: custom_geo_area
-        description: ""
+        description: "Custom geographic area grouping."
         config:
           meta:
             dimension:
               type: string
       - name: geo_json_reference_key
-        description: ""
+        description: "Reference key for GeoJSON map matching."
         config:
           meta:
             dimension:

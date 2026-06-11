@@ -1,6 +1,7 @@
 version: 2
 models:
   - name: fanouts_deals
+    description: "CRM deals associated with accounts, used to demonstrate fanout join patterns."
     meta:
       required_attributes:
         is_admin_saas_demo: "true"
@@ -75,12 +76,12 @@ models:
           dimension:
             type: date
       - name: plan
-        description: ""
+        description: "Subscription plan associated with this deal."
         meta:
           dimension:
             type: string
       - name: seats
-        description: ""
+        description: "Number of seats included in this deal."
         meta:
           dimension:
             type: number

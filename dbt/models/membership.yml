@@ -1,6 +1,7 @@
 version: 2
 models:
   - name: membership
+    description: "Customer membership records linking customers to their subscription plans."
     config:
       tags: ["core", "ai"]
     meta:
@@ -13,5 +14,8 @@ models:
           relationship: many-to-one
     columns:
       - name: id
+        description: "Unique identifier for the membership record."
       - name: customer_id
+        description: "Foreign key referencing the customer."
       - name: plan_id
+        description: "Foreign key referencing the subscription plan."

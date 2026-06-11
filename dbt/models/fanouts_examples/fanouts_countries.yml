@@ -1,6 +1,7 @@
 version: 2
 models:
   - name: fanouts_countries
+    description: "Reference table of countries with ISO codes for the fanout examples."
     meta:
       required_attributes:
         is_admin_saas_demo: 'true'

@@ -1,6 +1,7 @@
 version: 2
 models:
   - name: fanouts_accounts
+    description: "CRM accounts used to demonstrate fanout join patterns with deals, users, and tracks."
     meta:
       primary_key: account_id
       # This filter means that unless you are an admin, you can't see Enterprise account

@@ -1,6 +1,7 @@
 version: 2
 models:
   - name: fanouts_sales_targets
+    description: "Quarterly sales targets by industry, segment, or country for the fanout examples."
     meta:
       required_attributes:
         is_admin_saas_demo: 'true'

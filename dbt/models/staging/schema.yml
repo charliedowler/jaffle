@@ -1,6 +1,7 @@
 version: 2
 models:
   - name: stg_customers
+    description: "Staged customer records sourced from the raw customers table, with minimal transformations."
     meta:
       group_label: "staging"
     columns:
@@ -8,14 +9,15 @@ models:
         tests:
           - unique
           - not_null
-        description: ""
+        description: "Unique identifier for the customer."
       - name: first_name
-        description: ""
+        description: "Customer's first name."
       - name: last_name
-        description: ""
+        description: "Customer's last name."
       - name: created
-        description: ""
+        description: "Timestamp when the customer record was created."
   - name: stg_orders
+    description: "Staged order records sourced from the raw orders table, with status casting and basic cleaning."
     meta:
       group_label: "staging"
     columns:
@@ -23,7 +25,7 @@ models:
         tests:
           - unique
           - not_null
-        description: ""
+        description: "Unique identifier for the order."
         meta:
           dimension:
             type: number
@@ -36,21 +38,22 @@ models:
                 - completed
                 - return_pending
                 - returned
-        description: ""
+        description: "Fulfillment status of the order."
         meta:
           dimension:
             type: string
       - name: customer_id
-        description: ""
+        description: "Foreign key referencing the customer who placed the order."
         meta:
           dimension:
             type: number
       - name: order_date
-        description: ""
+        description: "Date the order was placed."
         meta:
           dimension:
             type: date
   - name: stg_payments
+    description: "Staged payment records sourced from the raw payments table, with amount conversion and method casting."
     meta:
       group_label: "staging"
     columns:
@@ -58,7 +61,7 @@ models:
         tests:
           - unique
           - not_null
-        description: ""
+        description: "Unique identifier for the payment."
       - name: payment_method
         tests:
           - accepted_values:
@@ -67,11 +70,11 @@ models:
                 - coupon
                 - bank_transfer
                 - gift_card
-        description: ""
+        description: "Method used for the payment (e.g. credit_card, coupon, bank_transfer, gift_card)."
       - name: order_id
-        description: ""
+        description: "Foreign key referencing the order this payment belongs to."
       - name: amount
-        description: ""
+        description: "Payment amount in dollars (converted from cents)."
 
   # Health staging models
   - name: stg_patients

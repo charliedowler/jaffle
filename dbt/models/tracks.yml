@@ -1,6 +1,7 @@
 version: 2
 models:
   - name: tracks
+    description: "Raw event tracking data capturing user actions and application interactions."
     config:
       tags: ["core", "another-ai-tag"]
     meta:
@@ -15,17 +16,17 @@ models:
           required: true
     columns:
       - name: user_id
-        description: ""
+        description: "Identifier of the user who triggered the event."
         meta:
           dimension:
             type: string
       - name: id
-        description: ""
+        description: "Unique identifier for the track event."
         meta:
           dimension:
             type: string
       - name: timestamp
-        description: ""
+        description: "Timestamp when the event occurred."
         meta:
           dimension:
             label: Timestamp
@@ -82,7 +83,7 @@ models:
               - HOUR_OF_DAY_NUM
               - MINUTE_OF_HOUR_NUM
       - name: event
-        description: ""
+        description: "Name or type of the tracked event."
         meta:
           dimension:
             type: string
@@ -104,12 +105,12 @@ models:
               type: count
 
       - name: event_text
-        description: ""
+        description: "Full text of the event."
         meta:
           dimension:
             type: string
       - name: context_app_version
-        description: ""
+        description: "Application version when the event was triggered."
         meta:
           dimension:
             type: string
