@@ -137,7 +137,7 @@ models:
         tests:
           - unique
           - not_null
-        description: This is a unique identifier for an order
+        description: Numeric identifier of the order
         config:
           meta:
             metrics:
@@ -195,7 +195,7 @@ models:
           dimension:
             type: boolean
       - name: customer_id
-        description: Foreign key to the customers table
+        description: Identifier of the customer who placed the order
         tests:
           - not_null
           - relationships:
