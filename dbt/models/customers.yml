@@ -264,4 +264,4 @@ models:
           dimension:
             type: number
       - name: customer_tier
-        description: "Customer's loyalty tier"
+        description: "Loyalty tier: gold, silver, or bronze"
