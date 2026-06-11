@@ -263,3 +263,5 @@ models:
         meta:
           dimension:
             type: number
+      - name: customer_tier
+        description: "Customer's loyalty tier"
