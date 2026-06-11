@@ -1,6 +1,7 @@
 version: 2
 models:
   - name: users
+    description: "Customer records filtered by user attribute for self-service access patterns."
     meta:
       primary_key: customer_id
       sql_filter: "customer_id = ${ld.attr.customer_id}"

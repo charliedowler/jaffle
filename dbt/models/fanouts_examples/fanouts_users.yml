@@ -1,6 +1,7 @@
 version: 2
 models:
   - name: fanouts_users
+    description: "CRM users linked to accounts, used to demonstrate many-to-many fanout patterns."
     meta: 
       required_attributes: 
         is_admin_saas_demo: 'true'
@@ -57,22 +58,22 @@ models:
           dimension:
             type: boolean
       - name: email
-        description: ""
+        description: "User's email address."
         meta:
           dimension:
             type: string
       - name: created_at
-        description: ""
+        description: "Timestamp when the user account was created."
         meta:
           dimension:
             type: timestamp
       - name: first_logged_in_at
-        description: ""
+        description: "Timestamp of the user's first login."
         meta:
           dimension:
             type: timestamp
       - name: latest_logged_in_at
-        description: ""
+        description: "Timestamp of the user's most recent login."
         meta:
           dimension:
             type: timestamp

@@ -19,7 +19,7 @@ models:
           fields: [ country_name, unique_country_count, inflated_country_count ]
     columns:
       - name: user_id
-        description: ""
+        description: "Foreign key referencing the user who owns this address."
         meta:
           dimension:
             type: string
@@ -38,12 +38,12 @@ models:
               label: "✅ FANOUT SAFE Unique Address Count"
               description: "✅ CORRECT: Uses count_distinct so won't inflate"
       - name: street_address
-        description: ""
+        description: "Street address line."
         meta:
           dimension:
             type: string
       - name: city
-        description: ""
+        description: "City of the address."
         meta:
           dimension:
             type: string
@@ -56,17 +56,17 @@ models:
               type: count
               label: "🚨 INFLATED City Count"
       - name: state
-        description: ""
+        description: "State or province of the address."
         meta:
           dimension:
             type: string
       - name: postal_code
-        description: ""
+        description: "Postal or ZIP code."
         meta:
           dimension:
             type: string
       - name: country_iso_code
-        description: ""
+        description: "ISO country code for this address."
         meta:
           dimension:
             type: string

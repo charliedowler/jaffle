@@ -1,6 +1,7 @@
 version: 2
 models:
   - name: fanouts_tracks
+    description: "User event tracks associated with fanout users, used to demonstrate chained join fanout."
     meta:
       required_attributes:
         is_admin_saas_demo: "true"
@@ -12,7 +13,7 @@ models:
           dimension:
             type: string
       - name: event_id
-        description: ""
+        description: "Unique identifier for the track event."
         meta:
           dimension:
             type: string
@@ -24,12 +25,12 @@ models:
             event_count:
               type: count
       - name: event_name
-        description: ""
+        description: "Name of the tracked event."
         meta:
           dimension:
             type: string
       - name: timestamp
-        description: ""
+        description: "Timestamp when the event was recorded."
         meta:
           dimension:
             type: timestamp

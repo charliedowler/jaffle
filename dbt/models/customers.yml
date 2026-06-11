@@ -244,7 +244,7 @@ models:
           dimension:
             type: number
       - name: number_of_orders
-        description: ""
+        description: "Total number of orders placed by the customer."
         config:
           meta:
             tags: ["ai"]
@@ -254,7 +254,7 @@ models:
           dimension:
             type: number
       - name: customer_lifetime_value
-        description: ""
+        description: "Sum of all payments made by the customer."
         config:
           meta:
             tags: ["ai"]

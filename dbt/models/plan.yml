@@ -1,6 +1,7 @@
 version: 2
 models:
   - name: plan
+    description: "Subscription plan definitions including plan name and metadata."
     config:
       tags: ["core", "ai"]
     meta:
@@ -9,8 +10,11 @@ models:
         is_admin: "true"
     columns:
       - name: id
+        description: "Unique identifier for the plan."
       - name: plan_name
+        description: "Name of the subscription plan."
       - name: metadata
+        description: "JSON metadata associated with the plan."
         meta:
           additional_dimensions:
             created_by:

@@ -1,6 +1,7 @@
 version: 2
 models:
   - name: events
+    description: "Event activity data capturing user interactions in the Jaffle Shop."
     config:
       tags: ["core", "ai"]
     meta:
@@ -27,7 +28,7 @@ models:
         - Contains user activity and engagement data
     columns:
       - name: timestamp_tz
-        description: ""
+        description: "Timezone-aware event timestamp."
         meta:
           dimension:
             label: "Timestamp (with timezone)"
@@ -59,17 +60,17 @@ models:
               - HOUR_OF_DAY_NUM
               - MINUTE_OF_HOUR_NUM
       - name: timestamp_ntz
-        description: ""
+        description: "Timestamp without timezone info."
         meta:
           dimension:
             type: timestamp
       - name: timestamp_ltz
-        description: ""
+        description: "Local timezone timestamp."
         meta:
           dimension:
             type: timestamp
       - name: date
-        description: ""
+        description: "Date of the event."
         meta:
           dimension:
             type: date
@@ -154,7 +155,7 @@ models:
                 CASE WHEN ${TABLE}.event = '{{ ld.parameters.events.event_status }}' THEN ${TABLE}.event ELSE NULL END
               {% endif %}{% endraw %}
       - name: event
-        description: ""
+        description: "Event type or name."
         meta:
           dimension:
             type: string
@@ -182,7 +183,7 @@ models:
                 height: 128
                 fit: cover
       - name: event_id
-        description: ""
+        description: "Unique identifier for the event."
         meta:
           dimension:
             type: number
