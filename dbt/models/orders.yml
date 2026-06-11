@@ -265,7 +265,7 @@ models:
           dimension:
             type: date
       - name: status
-        description: '{{ doc("orders_status") }}'
+        description: "Three-letter status code for the order"
         config:
           meta:
             dimension:
