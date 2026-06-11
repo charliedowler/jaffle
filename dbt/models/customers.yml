@@ -253,6 +253,8 @@ models:
         meta:
           dimension:
             type: number
+      - name: region
+        description: Two-letter region code
       - name: customer_lifetime_value
         description: ""
         config:
