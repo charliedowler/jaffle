@@ -254,7 +254,7 @@ models:
           dimension:
             type: number
       - name: region
-        description: Two-letter region code
+        description: ISO 3166-2 subdivision code
       - name: customer_lifetime_value
         description: ""
         config:
