@@ -1,11 +1,7 @@
 version: 2
 models:
   - name: airports
-    description: |
-      # World Airports
-
-      This table contains location data for airports around the world,
-      including their names, geographic coordinates, and passenger volume.
+    description: 'Docs updated via AI writeback LB-sim run A'
     columns:
       - name: name
         description: Airport name
