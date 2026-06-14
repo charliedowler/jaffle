@@ -1,11 +1,7 @@
 version: 2
 models:
   - name: orders
-    description: |
-      This table has basic information about orders, as well as some derived
-      facts based on payments
-
-      {{ doc("orders_status") }}
+    description: 'Docs updated via browser keepalive ON'
     config:
       tags: ["core", "ai"]
       meta:
