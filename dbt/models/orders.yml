@@ -143,6 +143,7 @@ models:
             metrics:
               unique_order_count:
                 type: count_distinct
+                description: "The total number of distinct orders placed. Calculated as COUNT DISTINCT of order_id across all orders, regardless of status."
                 spotlight:
                   categories: ["revenue_growth"]
               completed_order_count:
