@@ -56,7 +56,7 @@ models:
                 tags: ["ai", "period_metric"]
                 type: count_distinct
                 label: Unique customer count
-                description: Total number of customers
+                description: "The distinct count of customers who have a record in the customers table. Use this metric to measure the total size of the customer base or to count unique customers within any dimension breakdown (e.g. by signup month or plan type)."
                 spotlight:
                   categories: ["core", "revenue_growth"]
                 ai_hint: Unique customer count.
