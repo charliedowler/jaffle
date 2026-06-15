@@ -652,6 +652,7 @@ models:
                 sql: amount * tax_rate
                 format: usd
                 label: Total Tax Collected
+                description: "Sum of tax amount (USD) collected across all orders."
         meta:
           dimension:
             type: number
