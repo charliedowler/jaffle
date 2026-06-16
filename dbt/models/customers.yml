@@ -260,6 +260,10 @@ models:
             tags: ["ai"]
             dimension:
               hidden: true
+            metrics:
+              lifetime_spend:
+                type: sum
+                description: "Total amount a customer has spent across all their orders."
         meta:
           dimension:
             type: number
