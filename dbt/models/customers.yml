@@ -250,6 +250,12 @@ models:
             tags: ["ai"]
             dimension:
               hidden: true
+            metrics:
+              repeat_purchase_rate:
+                type: number
+                label: Repeat purchase rate
+                description: "The percentage of customers who have placed more than one order. Calculated as (customers with more than 1 order / total customers) * 100."
+                sql: "100.0 * sum(case when number_of_orders > 1 then 1 else 0 end) / nullif(count(customer_id), 0)"
         meta:
           dimension:
             type: number
