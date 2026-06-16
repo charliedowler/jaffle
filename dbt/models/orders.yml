@@ -27,7 +27,7 @@ models:
             metrics:
               - average_order_size
               - total_order_amount
-              - total_completed_order_amount
+              - completed_order_amount
             time_dimension: order_date
             granularity: day
           - name: sql_fields_daily
@@ -53,7 +53,7 @@ models:
             metrics:
               - total_non_completed_order_amount
               - total_order_amount
-              - total_completed_order_amount
+              - completed_order_amount
               - completion_percentage
             time_dimension: order_date
             granularity: day
@@ -85,14 +85,14 @@ models:
             spotlight:
               owner: demo@lightdash.com
             type: number
-            sql: ${total_completed_order_amount}/${total_order_amount}
+            sql: ${completed_order_amount}/${total_order_amount}
             format: percent
             ai_hint: |
               Ratio of completed orders to total orders
               Completion percentage of orders.
             drivers:
               - total_order_amount
-              - total_completed_order_amount
+              - completed_order_amount
           # PROD-6869: Cross-model type:number referencing sum_distinct
           # This metric references customers.total_order_amount_deduped (sum_distinct)
           # from the joined customers model. Before the fix, this would fail
@@ -372,7 +372,7 @@ models:
                 sql: ${total_order_amount}
                 format: usd
                 round: 2
-              total_completed_order_amount:
+              completed_order_amount:
                 type: sum
                 format: usd
                 round: 2
@@ -390,7 +390,7 @@ models:
               total_non_completed_order_amount:
                 type: number
                 format: "$#,##0.00"
-                sql: ${total_order_amount}-${total_completed_order_amount}
+                sql: ${total_order_amount}-${completed_order_amount}
               basic_sql_metric:
                 type: sum
                 label: Basic SQL Metric
