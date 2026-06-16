@@ -15,7 +15,7 @@ models:
               - status
             metrics:
               - average_order_size
-              - total_order_amount
+              - total_revenue
             time_dimension: order_date
             granularity: day
           - name: orders_daily_avg_demo_2
@@ -26,7 +26,7 @@ models:
               - customers.first_name
             metrics:
               - average_order_size
-              - total_order_amount
+              - total_revenue
               - total_completed_order_amount
             time_dimension: order_date
             granularity: day
@@ -52,7 +52,7 @@ models:
               - shipping_cost_tier
             metrics:
               - total_non_completed_order_amount
-              - total_order_amount
+              - total_revenue
               - total_completed_order_amount
               - completion_percentage
             time_dimension: order_date
@@ -62,7 +62,7 @@ models:
               - status
             metrics:
               - order_amount_plus_average_customer_age
-              - total_order_amount
+              - total_revenue
               - customers.average_age
             time_dimension: order_date
             granularity: day
@@ -85,13 +85,13 @@ models:
             spotlight:
               owner: demo@lightdash.com
             type: number
-            sql: ${total_completed_order_amount}/${total_order_amount}
+            sql: ${total_completed_order_amount}/${total_revenue}
             format: percent
             ai_hint: |
               Ratio of completed orders to total orders
               Completion percentage of orders.
             drivers:
-              - total_order_amount
+              - total_revenue
               - total_completed_order_amount
           # PROD-6869: Cross-model type:number referencing sum_distinct
           # This metric references customers.total_order_amount_deduped (sum_distinct)
@@ -106,11 +106,11 @@ models:
             round: 2
           order_amount_plus_average_customer_age:
             type: number
-            sql: ${total_order_amount} + ${customers.average_age}
+            sql: ${total_revenue} + ${customers.average_age}
             description: "Example type:number metric that references a joined customers metric."
             groups: ["pre-aggregations"]
             drivers:
-              - total_order_amount
+              - total_revenue
               - customers.average_age
         default_time_dimension:
           field: order_date
@@ -332,9 +332,11 @@ models:
                 spotlight:
                   categories: ["revenue_growth"]
                 drivers:
-                  - total_order_amount
+                  - total_revenue
                   - customers.unique_customer_count # cross-table driver example
-              total_order_amount:
+              total_revenue:
+                label: Total Revenue
+                description: Total value of all orders
                 type: sum
                 format: usd
                 round: 2
@@ -349,11 +351,11 @@ models:
                 round: 2
               amount_percent_of_previous:
                 type: percent_of_previous
-                sql: ${total_order_amount}
+                sql: ${total_revenue}
                 format: "#,##0.00%"
               amount_percent_of_total:
                 type: percent_of_total
-                sql: ${total_order_amount}
+                sql: ${total_revenue}
                 format: "#,##0.00%"
                 spotlight:
                   owner: demo@lightdash.com
@@ -368,7 +370,7 @@ models:
                     - date_custom_param_test # to test that metric segment_by overrides dimension segment_by: false
               amount_running_total:
                 type: running_total
-                sql: ${total_order_amount}
+                sql: ${total_revenue}
                 format: usd
                 round: 2
               total_completed_order_amount:
@@ -380,7 +382,7 @@ models:
                 spotlight:
                   categories: ["revenue_growth"]
                 drivers:
-                  - total_order_amount
+                  - total_revenue
               total_completed_order_amount_eur:
                 type: sum
                 format: eur
@@ -389,7 +391,7 @@ models:
               total_non_completed_order_amount:
                 type: number
                 format: "$#,##0.00"
-                sql: ${total_order_amount}-${total_completed_order_amount}
+                sql: ${total_revenue}-${total_completed_order_amount}
               basic_sql_metric:
                 type: sum
                 label: Basic SQL Metric

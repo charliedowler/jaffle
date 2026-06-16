@@ -73,9 +73,9 @@ models:
                   - test_set*
                   - unique_payment_count
                   - orders.average_order_size
-                  - orders.total_order_amount
+                  - orders.total_revenue
                   # # Dimensions
                   - orders.customer_id
                 drivers:
                   - unique_payment_count
-                  - orders.total_order_amount
+                  - orders.total_revenue
