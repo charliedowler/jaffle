@@ -61,7 +61,7 @@ models:
                 description: "Regular SUM of order amount — inflated by join fan-out when orders have multiple payments. Compare with total_order_amount_deduped to see the difference."
                 format: usd
                 round: 2
-              total_revenue:
+              revenue_total:
                 spotlight:
                   owner: demo2@lightdash.com
                   categories: ['revenue_growth']
