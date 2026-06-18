@@ -336,7 +336,8 @@ models:
                   - customers.unique_customer_count # cross-table driver example
               total_order_amount:
                 type: sum
-                description: "Total monetary amount across all orders."
+                label: Total order amount
+                description: "The total sum of order amounts across all orders."
                 format: usd
                 round: 2
                 default_time_dimension:
