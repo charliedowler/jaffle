@@ -202,6 +202,13 @@ models:
           - relationships:
               to: ref('customers')
               field: customer_id
+        config:
+          meta:
+            metrics:
+              distinct_customer_count:
+                type: count_distinct
+                label: Distinct customer count
+                description: "The number of distinct customers who have placed an order."
         meta:
           dimension:
             type: number
