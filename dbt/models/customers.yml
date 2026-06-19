@@ -202,7 +202,7 @@ models:
             tags: ["ai"]
             type: timestamp
       - name: first_order
-        description: Date of the customers first order
+        description: Date of the customer's first order
         config:
           meta:
             dimension:
@@ -212,7 +212,7 @@ models:
           dimension:
             type: date
       - name: most_recent_order
-        description: Date of the customers most recent order
+        description: Date of the customer's most recent order
         config:
           meta:
             tags: ["ai"]
@@ -222,7 +222,7 @@ models:
           dimension:
             type: date
       - name: days_since_last_order
-        description: Number of days since the customers last order
+        description: Number of days since the customer's last order
         config:
           meta:
             tags: ["ai"]
