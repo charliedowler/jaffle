@@ -109,3 +109,6 @@ For more information on dbt:
 - Read the [dbt viewpoint](https://docs.getdbt.com/docs/about/viewpoint).
 - Join the [dbt community](http://community.getdbt.com/).
 ---
+Resume-fix verification — base line
+Resume-fix verification — follow-up line
+Resume-fix verification — routed via panel
