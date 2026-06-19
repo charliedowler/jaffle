@@ -110,3 +110,4 @@ For more information on dbt:
 - Join the [dbt community](http://community.getdbt.com/).
 ---
 Resume-fix verification — base line
+Resume-fix verification — follow-up line
