@@ -1,5 +1,7 @@
 ## How to use this project in Lightdash 
 
+A sample dbt project for analytics engineering demos and testing.
+
 ### Install Lightdash:
 Take advantage of our installation script to easily run Lightdash locally. Check the [documentation page](https://docs.lightdash.com/get-started/setup-lightdash/install-lightdash#deploy-locally-with-our-installation-script) for more details.
 ```bash
