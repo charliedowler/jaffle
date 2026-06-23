@@ -2,8 +2,7 @@ version: 2
 models:
   - name: orders
     description: |
-      This table has basic information about orders, as well as some derived
-      facts based on payments
+      One row per order, capturing order status, amounts, and payment breakdowns for every customer purchase.
 
       {{ doc("orders_status") }}
     config:
