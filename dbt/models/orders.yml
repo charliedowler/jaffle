@@ -604,7 +604,7 @@ models:
             type: number
 
       - name: shipping_cost
-        description: Cost of shipping for the order
+        description: Shipping cost (USD) charged for the order, determined by the selected shipping method and fulfillment center
         config:
           meta:
             metrics:
