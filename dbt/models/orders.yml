@@ -1,11 +1,7 @@
 version: 2
 models:
   - name: orders
-    description: |
-      This table has basic information about orders, as well as some derived
-      facts based on payments
-
-      {{ doc("orders_status") }}
+    description: One row per order, capturing order details and payment-derived totals such as amount paid by each payment method.
     config:
       tags: ["core", "ai"]
       meta:
