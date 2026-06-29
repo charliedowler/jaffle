@@ -141,6 +141,9 @@ models:
         config:
           meta:
             metrics:
+              total_orders:
+                type: count
+                description: "The total number of orders placed."
               unique_order_count:
                 type: count_distinct
                 description: "The total number of distinct orders placed. Calculated as COUNT DISTINCT of order_id across all orders, regardless of status."
