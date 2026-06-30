@@ -112,3 +112,4 @@ For more information on dbt:
 Resume-fix verification — base line
 Resume-fix verification — follow-up line
 Resume-fix verification — routed via panel
+Chrome MCP e2e test — rebase verification
