@@ -251,6 +251,10 @@ models:
             dimension:
               hidden: true
             metrics:
+              order_count:
+                type: count
+                label: Order Count
+                description: "The total number of orders placed by a customer."
               repeat_purchase_rate:
                 type: number
                 label: Repeat purchase rate
