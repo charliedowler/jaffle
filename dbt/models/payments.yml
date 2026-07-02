@@ -42,7 +42,7 @@ models:
       - name: order_id
         description: Foreign key to the orders table
       - name: payment_method
-        description: Method of payment used, for example credit card
+        description: Method of payment used, for example credit card (jaffle shop)
       - name: amount
         description: Total amount (AUD) of the individual payment
         config:
