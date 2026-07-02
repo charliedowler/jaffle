@@ -1,7 +1,7 @@
 version: 2
 models:
   - name: payments
-    description: This table has information about individual payments
+    description: The payments fact table for the jaffle shop.
     config:
       tags: ["core", "ai"]
       meta:
