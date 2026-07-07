@@ -59,7 +59,12 @@ final as (
 
         {% endfor -%}
 
-        order_payments.total_amount as amount
+        order_payments.total_amount as amount,
+
+        order_payments.total_amount / NULLIF(
+            SUM(order_payments.total_amount) OVER (PARTITION BY orders.customer_id),
+            0
+        ) as pct_of_customer_spend
 
     from orders
 
