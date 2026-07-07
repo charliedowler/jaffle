@@ -29,6 +29,21 @@ order_payments as (
 
 ),
 
+customer_max_other_amounts as (
+
+    select
+        o1.order_id,
+        max(op2.total_amount) as customer_max_other_order_amount
+    from orders o1
+    left join orders o2
+        on o1.customer_id = o2.customer_id
+        and o1.order_id != o2.order_id
+    left join order_payments op2
+        on o2.order_id = op2.order_id
+    group by o1.order_id
+
+),
+
 final as (
 
     select
@@ -59,11 +74,14 @@ final as (
 
         {% endfor -%}
 
-        order_payments.total_amount as amount
+        order_payments.total_amount as amount,
+
+        customer_max_other_amounts.customer_max_other_order_amount
 
     from orders
 
     left join order_payments using (order_id)
+    left join customer_max_other_amounts using (order_id)
 
 )
 
