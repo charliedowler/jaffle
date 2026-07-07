@@ -40,6 +40,19 @@ final as (
         {% endif %}
         orders.customer_id,
         orders.order_date,
+        {% if target.type == 'trino' or target.type == 'athena' %}
+        count(*) over (
+            partition by orders.customer_id
+            order by orders.order_date
+            range between interval '29' day preceding and current row
+        ) as customer_orders_last_30d,
+        {% else %}
+        count(*) over (
+            partition by orders.customer_id
+            order by orders.order_date
+            range between interval '29 days' preceding and current row
+        ) as customer_orders_last_30d,
+        {% endif %}
         orders.status,
         case when status = 'completed' then TRUE else FALSE end AS is_completed,
         orders.order_source,

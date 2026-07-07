@@ -250,6 +250,12 @@ models:
               filter_by: false
               segment_by: false
         type: string
+      - name: customer_orders_last_30d
+        description: Number of orders placed by the same customer in the 30 days up to and including this order's order_date
+        meta:
+          dimension:
+            type: number
+
       - name: order_date
         description: Date (UTC) that the order was placed
         config:
