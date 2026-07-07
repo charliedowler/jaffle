@@ -251,6 +251,11 @@ models:
             dimension:
               hidden: true
             metrics:
+              returning_customer_count:
+                type: number
+                label: Returning customer count
+                description: "Count of customers who have placed more than one order."
+                sql: "sum(case when number_of_orders > 1 then 1 else 0 end)"
               repeat_purchase_rate:
                 type: number
                 label: Repeat purchase rate
