@@ -19,6 +19,15 @@ select
         from {{ ref('stg_orders') }} as o2
         where o2.customer_id = o.customer_id
           and o2.order_date <= o.order_date
-    ) as customer_orders_to_date
+    ) as customer_orders_to_date,
+
+    -- total amount this customer has spent across all of their orders
+    (
+        select sum(p.amount)
+        from {{ ref('stg_payments') }} as p
+        inner join {{ ref('stg_orders') }} as o2
+            on p.order_id = o2.order_id
+        where o2.customer_id = o.customer_id
+    ) as customer_total_spend
 
 from {{ ref('stg_orders') }} as o
