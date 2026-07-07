@@ -24,3 +24,7 @@ models:
         meta:
           dimension:
             type: number
+      - name: customer_total_spend
+        meta:
+          dimension:
+            type: number
