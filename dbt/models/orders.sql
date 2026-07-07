@@ -29,6 +29,20 @@ order_payments as (
 
 ),
 
+customer_lifetime_spend as (
+
+    select
+        orders.customer_id,
+        sum(order_payments.total_amount) as lifetime_spend
+
+    from orders
+
+    left join order_payments using (order_id)
+
+    group by 1
+
+),
+
 final as (
 
     select
@@ -59,11 +73,15 @@ final as (
 
         {% endfor -%}
 
-        order_payments.total_amount as amount
+        order_payments.total_amount as amount,
+
+        order_payments.total_amount / nullif(customer_lifetime_spend.lifetime_spend, 0) as pct_of_customer_lifetime_spend
 
     from orders
 
     left join order_payments using (order_id)
+
+    left join customer_lifetime_spend using (customer_id)
 
 )
 
