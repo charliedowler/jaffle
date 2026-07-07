@@ -447,6 +447,14 @@ models:
         meta:
           dimension:
             type: number
+      - name: pct_of_customer_spend
+        description: This order's amount as a percentage of the customer's total spend across all their orders
+        meta:
+          dimension:
+            type: number
+            format: percent
+            round: 2
+
       - name: credit_card_amount
         description: Amount of the order (AUD) paid for by credit card
         tests:
