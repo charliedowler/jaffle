@@ -693,6 +693,12 @@ models:
               west_coast: "#ff7f0e"
               central: "#2ca02c"
 
+      - name: completed_amount_rank_in_center
+        description: Rank of this order's amount among completed orders in the same fulfillment center (rank 1 = highest amount)
+        meta:
+          dimension:
+            type: number
+
       - name: order_notes
         description: Additional notes and context about the order
         meta:

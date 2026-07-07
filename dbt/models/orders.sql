@@ -59,7 +59,15 @@ final as (
 
         {% endfor -%}
 
-        order_payments.total_amount as amount
+        order_payments.total_amount as amount,
+
+        CASE
+            WHEN orders.status = 'completed'
+            THEN RANK() OVER (
+                PARTITION BY orders.fulfillment_center
+                ORDER BY CASE WHEN orders.status = 'completed' THEN order_payments.total_amount END DESC NULLS LAST
+            )
+        END AS completed_amount_rank_in_center
 
     from orders
 
