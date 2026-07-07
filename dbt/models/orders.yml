@@ -98,6 +98,13 @@ models:
           # from the joined customers model. Before the fix, this would fail
           # with "invalid identifier" because the sum_distinct's deduplication
           # CTE metadata was lost during cross-model reference compilation.
+          revenue_per_order:
+            type: number
+            label: Revenue per Order
+            description: "Average revenue per order, calculated as total order amount divided by the number of distinct orders."
+            sql: ${total_order_amount} / NULLIF(${unique_order_count}, 0)
+            format: usd
+            round: 2
           deduped_revenue_per_order:
             type: number
             sql: ${customers.total_order_amount_deduped} / NULLIF(${unique_order_count}, 0)
