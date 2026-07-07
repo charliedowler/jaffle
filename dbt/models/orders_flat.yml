@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: orders_flat
+    description: Flat orders model (test fixture for writeback SQL-style e2e).
+    columns:
+      - name: order_id
+        meta:
+          dimension:
+            type: string
+      - name: customer_id
+        meta:
+          dimension:
+            type: string
+      - name: order_date
+        meta:
+          dimension:
+            type: date
+      - name: order_total
+        meta:
+          dimension:
+            type: number
+      - name: customer_orders_to_date
+        meta:
+          dimension:
+            type: number
