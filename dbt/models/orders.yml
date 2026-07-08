@@ -345,6 +345,12 @@ models:
                   interval: DAY
                 spotlight:
                   categories: ["revenue_growth"]
+              total_revenue:
+                type: sum
+                label: Total Revenue
+                description: "The total revenue from orders, calculated as the sum of the order amount."
+                format: usd
+                round: 2
               average_order_amount:
                 type: average
                 format: usd
