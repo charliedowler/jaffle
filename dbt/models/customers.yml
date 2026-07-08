@@ -104,6 +104,11 @@ models:
                 label: SPK548 Fix Verify Metric 3
                 sql: customer_id
                 type: count
+              spk548_race_guard_test:
+                description: A test metric added for SPK-548 race guard verification purposes.
+                label: SPK548 Race Guard Test
+                sql: customer_id
+                type: count
         meta:
           dimension:
             type: number
