@@ -99,6 +99,11 @@ models:
                   ### ⚠️ ${ value.formatted }
                   **Low** Average CLV - _Needs attention!_
                   {% endif %}{% endraw %}
+              spk548_fix_verify_metric_3:
+                description: A third test metric added for SPK-548 verification purposes.
+                label: SPK548 Fix Verify Metric 3
+                sql: customer_id
+                type: count
         meta:
           dimension:
             type: number
