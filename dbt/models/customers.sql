@@ -1,3 +1,4 @@
+-- SPK-548 MCP live test
 
 with customers as (
 
