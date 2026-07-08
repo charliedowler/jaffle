@@ -349,6 +349,12 @@ models:
                 type: average
                 format: usd
                 round: 2
+              average_order_value:
+                type: average
+                label: Average Order Value
+                description: "The average monetary value of an order, calculated as the mean of the order amount (USD)."
+                format: usd
+                round: 2
               amount_percent_of_previous:
                 type: percent_of_previous
                 sql: ${total_order_amount}
