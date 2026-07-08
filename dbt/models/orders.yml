@@ -163,6 +163,9 @@ models:
                   - status:
                       - completed
                       - shipped
+              wrk2_orders_count:
+                type: count
+                description: "Total count of orders (rows)."
         meta:
           dimension:
             type: number
