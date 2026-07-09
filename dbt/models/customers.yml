@@ -103,6 +103,9 @@ models:
                 type: count
                 label: SPK548 Queue A
                 description: "A simple count of customer records, added for SPK-548."
+              spk548_queue_b:
+                type: count
+                label: "SPK548 Queue B"
         meta:
           dimension:
             type: number
