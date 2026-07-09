@@ -99,6 +99,10 @@ models:
                   ### ⚠️ ${ value.formatted }
                   **Low** Average CLV - _Needs attention!_
                   {% endif %}{% endraw %}
+              spk548_queue_a:
+                type: count
+                label: SPK548 Queue A
+                description: "A simple count of customer records, added for SPK-548."
         meta:
           dimension:
             type: number
