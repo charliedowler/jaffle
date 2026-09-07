@@ -1,3 +1,4 @@
+Maintained with Lightdash AI.
 ## How to use this project in Lightdash 
 
 ### Install Lightdash:
