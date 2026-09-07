@@ -2,7 +2,7 @@ version: 2
 models:
   - name: orders
     description: |
-      This table has basic information about orders, as well as some derived
+      The orders fact table for the jaffle shop. This table has basic information about orders, as well as some derived
       facts based on payments
 
       {{ doc("orders_status") }}
